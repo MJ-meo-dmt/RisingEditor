@@ -17,6 +17,9 @@
     <!-- // editorToolBar -->
 	<div class="editorToolBar">
 	    <p class="editorFileBtn"></p>
+	    <p class="editorEditBtn"></p>
+	    <p class="editorViewBtn"></p>
+	    <p class="editorHelpBtn"></p>
         </div>
     <!-- editorToolBar // -->
     
