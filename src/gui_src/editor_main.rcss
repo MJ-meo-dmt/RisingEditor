@@ -25,7 +25,7 @@ body {
     background-decorator:image;
     background-image: ../../data_src/gui/images/File_btn.png;
     width:40px;
-    height:24;
+    height:24px;
     float:left;
     margin-top:3px;
     
@@ -64,14 +64,29 @@ body {
 /* Toolbar dropdown menus */
 
 select {
-    width:140px;
-    height:65px;
-    background-color:black;
+    width:40px;
+    height:24px;
     
-
 }
 
+select selectbox {	
+    margin-left: 1px;
+    margin-top: 4px;
+    width: 100px;
+    height:50px;
+    padding: 1px 4px 4px 4px;
+    
+}
 
+select selectbox option {
+    width: auto;
+    padding-left: 3px;
+    
+}
+
+select selectbox option:hover {
+    background: #FF5D5D;
+}
 /* Editor Toolbar  // */
 
 
