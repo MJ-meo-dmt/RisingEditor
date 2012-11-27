@@ -6,7 +6,12 @@
 <title>Rising Editor</title>
 
 <!-- // Scripts -->
+<script>
 
+def printo():
+    print "Hello option two!!!"
+
+</script>
 
 <!-- Scripts // -->
 
@@ -16,7 +21,15 @@
 	
     <!-- // editorToolBar -->
 	<div class="editorToolBar">
-	    <p class="editorFileBtn"></p>
+	    <div class="editorFileBtn"> 
+		<select class="select">
+		    <option>One</option>
+		    <option onmouseclick="printo">Two</option>
+		    <option>Three</option>
+		</select>
+	    
+	    </div>
+		
 	    <p class="editorEditBtn"></p>
 	    <p class="editorViewBtn"></p>
 	    <p class="editorHelpBtn"></p>

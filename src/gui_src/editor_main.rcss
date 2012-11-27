@@ -45,7 +45,7 @@ body {
     background-decorator:image;
     background-image: ../../data_src/gui/images/View_btn.png;
     width:55px;
-    height:23px;
+    height:24px;
     float:left;
     margin-top:3px;
     
@@ -60,6 +60,17 @@ body {
     margin-top:3px;
     
 }
+
+/* Toolbar dropdown menus */
+
+select {
+    width:140px;
+    height:65px;
+    background-color:black;
+    
+
+}
+
 
 /* Editor Toolbar  // */
 
