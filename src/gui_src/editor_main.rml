@@ -1,0 +1,26 @@
+<rml>
+	<head>
+		<link type="text/rcss" href="editor_main.rcss"/>
+		
+	
+<title>Rising Editor</title>
+
+<!-- // Scripts -->
+
+
+<!-- Scripts // -->
+
+</head>
+
+<body>
+	
+    <!-- // editorToolBar -->
+	<div class="editorToolBar">
+	    <p class="editorFileBtn"></p>
+        </div>
+    <!-- editorToolBar // -->
+    
+
+</body>
+</rml>
+
