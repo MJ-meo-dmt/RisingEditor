@@ -21,13 +21,14 @@ def printo():
 	
     <!-- // editorToolBar -->
 	<div class="editorToolBar">
-	    <div class="editorFileBtn"> 
-		<div><select value="">
-		    <option>One</option>
-		    <option onmouseclick="printo">Two</option>
-		    <option>Three</option>
-		</select>
-		</div>
+	    <div class="editorFileBtn">
+		
+		    <select>
+		    <option><div onclick="printo()">One</div></option>
+		    <option><div onclick="printo()">Two</div></option>
+		    <option><div onclick="printo()">Three</div></option>
+		    </select>
+		
 	    
 	    </div>
 		
