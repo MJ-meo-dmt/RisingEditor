@@ -18,6 +18,7 @@ loadPrcFileData("",
 	cursor-hidden 0
 	show-frame-rate-meter 1
 	notify-level-rocket debug
+	
 """
 )
 

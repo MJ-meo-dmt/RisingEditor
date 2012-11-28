@@ -17,49 +17,67 @@ body {
     z-index: 2;
     position: absolute;
     width: 100%;
-    height: 30px;
+    height: 32px;
     
 }
 
 .editorFileBtn {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/file.png;
+    background-image: ../../data_src/gui/images/file_btn.png;
     width:41px;
     height:31px;
     float:left;
-    margin-top:3px;
+    margin-left:15px;
     
-    
+}
+
+.editorFileBtn:hover {
+    background-decorator:image;
+    background-image: ../../data_src/gui/images/file_hover.png;
 }
 
 .editorEditBtn {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/edit.png;
+    background-image: ../../data_src/gui/images/edit_btn.png;
     width:41px;
     height:31px;
     float:left;
-    margin-top:3px;
     
+}
+
+.editorEditBtn:hover {
+    background-decorator:image;
+    background-image: ../../data_src/gui/images/edit_hover.png;
 }
 
 .editorViewBtn {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/view.png;
-    width:50px;
+    background-image: ../../data_src/gui/images/view_btn.png;
+    width:41px;
     height:31px;
     float:left;
-    margin-top:3px;
     
+}
+
+.editorViewBtn:hover {
+    background-decorator:image;
+    background-image: ../../data_src/gui/images/view_hover.png;
 }
 
 .editorHelpBtn {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/help.png;
-    width:47px;
-    height:53px;
+    background-image: ../../data_src/gui/images/help_btn.png;
+    width:41px;
+    height:31px;
     float:left;
-    margin-top:3px;
-    
+    margin-top:2px;
+
+}
+
+.editorHelpBtn:hover {
+    background-decorator:image;
+    background-image: ../../data_src/gui/images/help_hover.png;
+    margin-top:1px;
 }
 
 /* Toolbar dropdown menus */
@@ -75,17 +93,13 @@ select selectvalue {
 }
 
 select selectbox {	
-    background-decorator:image;
-    background-image: ../../data_src/gui/images/dropbox.png;
     margin-left: 1px;
     margin-top: 6px;
-    width: 78px;
-    height:80px;
+    width: 54px;
+    height:108px;
     padding: 1px 4px 4px 4px;
-    font-size:16px;
-    border-style:solid;
-    border-color:#bcbcbc;
-    border-width:1px;
+    font-size:12px;
+    
     
 }
 
@@ -96,7 +110,7 @@ select selectbox option {
 }
 
 select selectbox option:hover {
-    background: #FF5D5D;
+    background: #83d4e6;
 }
 /* Editor Toolbar  // */
 
