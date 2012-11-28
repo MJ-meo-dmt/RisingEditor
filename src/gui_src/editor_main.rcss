@@ -23,7 +23,7 @@ body {
 
 .editorFileBtn {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/file_btn.png;
+    background-image: ../../data_src/gui/images/File_btn.png;
     width:41px;
     height:31px;
     float:left;
@@ -33,12 +33,12 @@ body {
 
 .editorFileBtn:hover {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/file_hover.png;
+    background-image: ../../data_src/gui/images/File_hover.png;
 }
 
 .editorEditBtn {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/edit_btn.png;
+    background-image: ../../data_src/gui/images/Edit_btn.png;
     width:41px;
     height:31px;
     float:left;
@@ -47,12 +47,12 @@ body {
 
 .editorEditBtn:hover {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/edit_hover.png;
+    background-image: ../../data_src/gui/images/Edit_hover.png;
 }
 
 .editorViewBtn {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/view_btn.png;
+    background-image: ../../data_src/gui/images/View_btn.png;
     width:41px;
     height:31px;
     float:left;
@@ -61,12 +61,12 @@ body {
 
 .editorViewBtn:hover {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/view_hover.png;
+    background-image: ../../data_src/gui/images/View_hover.png;
 }
 
 .editorHelpBtn {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/help_btn.png;
+    background-image: ../../data_src/gui/images/Help_btn.png;
     width:41px;
     height:31px;
     float:left;
@@ -76,7 +76,7 @@ body {
 
 .editorHelpBtn:hover {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/help_hover.png;
+    background-image: ../../data_src/gui/images/Help_hover.png;
     margin-top:1px;
 }
 
