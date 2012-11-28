@@ -10,7 +10,7 @@ body {
     font-family:verdana;
 }
 
-/* // Setup the Editor Toolbar */
+/* EDITOR TOOLBAR AND DROP MENUS */
 .editorToolBar {
     background-decorator: image;
     background-image: ../../data_src/gui/images/toolbar.png;
@@ -28,6 +28,7 @@ body {
     width:41px;
     height:31px;
     float:left;
+    margin-left:40px;
     
 }
 
@@ -83,7 +84,7 @@ body {
     margin-top:1px;
 }
 
-/* Toolbar dropdown menus */
+/* Toolbar dropdown menu select */
 
 select {
     width:40px;
@@ -112,18 +113,95 @@ select selectbox option {
     background-image: ../../data_src/gui/images/dropbox.png;
     border-style:solid;
     border-width:1px;
-    border-color:grey;
+    border-color:#6ca5ca;
     
 }
 
 select selectbox option:hover {
     background: #83d4e6;
 }
-/* Editor Toolbar  // */
+/* EDITOR TOOLBAR END */
 
+/* SIDEBAR AND BUTTONS */
 
+.sidebar {
+    background-decorator:image;
+    background-image: ../../data_src/gui/images/sidebar.png;
+    width: 48px;
+    height: 300px;
+    position:absolute;
+    z-index:0;
+    left:-1px;
+    top:24px;
+}
 
+/* SIDEBAR BUTTONS*/
 
+.moveTool {
+    background-decorator:image;
+    background-image: ../../data_src/gui/images/move_tool.png;
+    width:32px;
+    height:32px;
+    float:left;
+    margin-left:7px;
+    margin-top:6px;
+}
+
+.moveTool span {
+    display:none;
+    margin-left:38px;
+    width:80px;
+}
+.moveTool:hover span {
+    display:inline;
+    position:relative;
+    font-size:10px;
+    
+}
+
+.rotateTool {
+    background-decorator:image;
+    background-image: ../../data_src/gui/images/rotate_tool.png;
+    width:32px;
+    height:32px;
+    float:left;
+    margin-left:7px;
+    margin-top:6px;
+}
+
+.rotateTool span {
+    display:none;
+    margin-left:38px;
+    width:80px;
+}
+.rotateTool:hover span {
+    display:inline;
+    position:relative;
+    font-size:10px;
+}
+
+.scaleTool {
+    background-decorator:image;
+    background-image: ../../data_src/gui/images/scale_tool.png;
+    width:32px;
+    height:32px;
+    float:left;
+    margin-left:7px;
+    margin-top:6px;
+}
+
+.scaleTool span {
+    display:none;
+    margin-left:38px;
+    width:80px;
+}
+.scaleTool:hover span {
+    display:inline;
+    position:relative;
+    font-size:10px;
+}
+
+/* SIDEBAR END*/
 
 
 

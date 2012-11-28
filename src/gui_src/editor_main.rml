@@ -74,7 +74,24 @@ def printo():
 	
     <!-- editorToolBar -->
     
-
+    
+    <!-- SideBar -->
+	
+	<div class="sidebar">
+	    
+	    <!-- Move Tool -->
+		<div class="moveTool"><span>Move Tool</span></div>
+	    
+	    <!-- Rotate Tool -->
+		<div class="rotateTool"><span>Rotate Tool</span></div>
+		
+	    <!-- Scale Tool -->
+		<div class="scaleTool"><span>Scale Tool</span></div>
+	
+	</div>
+    
+    <!-- Sidebar -->
+    
 </body>
 </rml>
 
