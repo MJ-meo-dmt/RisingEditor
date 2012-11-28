@@ -19,43 +19,60 @@ def printo():
 
 <body>
 	
-    <!-- // editorToolBar -->
+    <!-- editorToolBar -->
 	<div class="editorToolBar">
+	    
+	    
+	<!-- FILE BTN - Menu -->
 	    <div class="editorFileBtn">
 		    
-		    <select>
+		<select>
 		    <option><div onclick="printo()">New</div></option>
 		    <option><div onclick="printo()">Open</div></option>
 		    <option><div onclick="printo()">Save</div></option>
 		    <option><div onclick="printo()">Import</div></option>
 		    <option><div onclick="printo()">Export</div></option>
-		    <option><div onclick="printo()">Exit</div></option>
-		    </select>
+		    <option><div onclick="exit()">Exit</div></option>
+		</select>
 	
 	    </div>
 	    
+	<!-- EDIT BTN - Menu -->    
 	    <div class="editorEditBtn">
 		
-		    <select>
+		<select>
 		    <option><div onclick="printo()"><p>One</p></div></option>
 		    <option><div onclick="printo()">Two</div></option>
 		    <option><div onclick="printo()">Three</div></option>
-		    </select>
+		</select>
 	    
 	    </div>
 	    
+	<!-- VIEW BTN - Menu -->
 	    <div class="editorViewBtn">
 	    
-		    <select>
+		<select>
 		    <option><div onclick="printo()">One</div></option>
 		    <option><div onclick="printo()">Two</div></option>
 		    <option><div onclick="printo()">Three</div></option>
-		    </select>
+		</select>
 	    
 	    </div>
-	    <div class="editorHelpBtn"></div>
+	    
+	<!-- HELP BTN - Menu -->
+	    <div class="editorHelpBtn">
+	    
+		<select>
+		    <option><div onclick="printo()">About</div></option>
+		    <option><div onclick="printo()">Site</div></option>
+		</select>
+	    
+	    </div>
+	    
+	    
         </div>
-    <!-- editorToolBar // -->
+	
+    <!-- editorToolBar -->
     
 
 </body>
