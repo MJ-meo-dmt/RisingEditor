@@ -14,7 +14,7 @@ loadPrcFileData("",
 """    
 	window-title Rising Editor
 	fullscreen 0
-	win-size 1024 768
+	win-size 1154 768
 	cursor-hidden 0
 	show-frame-rate-meter 1
 	notify-level-rocket debug

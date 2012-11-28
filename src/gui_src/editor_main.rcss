@@ -3,17 +3,17 @@
 
 /* Basics */
 body {
-	z-index: -1;
-	width: 100%; 
-	height: 100%; 
-	margin: auto;
-	font-family:verdana;
+    z-index: -1;
+    width: 100%; 
+    height: 100%; 
+    margin: auto;
+    font-family:verdana;
 }
 
 /* // Setup the Editor Toolbar */
 .editorToolBar {
     background-decorator: image;
-    background-image: ../../data_src/gui/images/editor_toolbar.png;
+    background-image: ../../data_src/gui/images/toolbar.png;
     z-index: 2;
     position: absolute;
     width: 100%;
@@ -23,19 +23,20 @@ body {
 
 .editorFileBtn {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/File_btn.png;
-    width:40px;
-    height:24px;
+    background-image: ../../data_src/gui/images/file.png;
+    width:41px;
+    height:31px;
     float:left;
     margin-top:3px;
+    
     
 }
 
 .editorEditBtn {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/Edit_btn.png;
-    width:45px;
-    height:24px;
+    background-image: ../../data_src/gui/images/edit.png;
+    width:41px;
+    height:31px;
     float:left;
     margin-top:3px;
     
@@ -43,9 +44,9 @@ body {
 
 .editorViewBtn {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/View_btn.png;
-    width:55px;
-    height:24px;
+    background-image: ../../data_src/gui/images/view.png;
+    width:50px;
+    height:31px;
     float:left;
     margin-top:3px;
     
@@ -53,9 +54,9 @@ body {
 
 .editorHelpBtn {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/Help_btn.png;
-    width:51px;
-    height:28px;
+    background-image: ../../data_src/gui/images/help.png;
+    width:47px;
+    height:53px;
     float:left;
     margin-top:3px;
     
@@ -79,9 +80,12 @@ select selectbox {
     margin-left: 1px;
     margin-top: 6px;
     width: 78px;
-    height:72px;
+    height:80px;
     padding: 1px 4px 4px 4px;
-    font-size:16px;    
+    font-size:16px;
+    border-style:solid;
+    border-color:#bcbcbc;
+    border-width:1px;
     
 }
 

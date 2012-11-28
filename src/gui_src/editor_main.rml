@@ -22,19 +22,35 @@ def printo():
     <!-- // editorToolBar -->
 	<div class="editorToolBar">
 	    <div class="editorFileBtn">
-		
+		    
 		    <select>
 		    <option><div onclick="printo()">One</div></option>
 		    <option><div onclick="printo()">Two</div></option>
 		    <option><div onclick="printo()">Three</div></option>
 		    </select>
+	
+	    </div>
+	    
+	    <div class="editorEditBtn">
 		
+		    <select>
+		    <option><div onclick="printo()"><p>One</p></div></option>
+		    <option><div onclick="printo()">Two</div></option>
+		    <option><div onclick="printo()">Three</div></option>
+		    </select>
 	    
 	    </div>
-		
-	    <p class="editorEditBtn"></p>
-	    <p class="editorViewBtn"></p>
-	    <p class="editorHelpBtn"></p>
+	    
+	    <div class="editorViewBtn">
+	    
+		    <select>
+		    <option><div onclick="printo()">One</div></option>
+		    <option><div onclick="printo()">Two</div></option>
+		    <option><div onclick="printo()">Three</div></option>
+		    </select>
+	    
+	    </div>
+	    <div class="editorHelpBtn"></div>
         </div>
     <!-- editorToolBar // -->
     
