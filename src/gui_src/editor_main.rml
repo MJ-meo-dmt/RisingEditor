@@ -80,13 +80,13 @@ def printo():
 	<div class="sidebar">
 	    
 	    <!-- Move Tool -->
-		<div class="moveTool" onclick="messenger.send('w')"><span>Move Tool</span></div>
+		<div class="moveTool" onclick="messenger.send('w')"><span>Move Tool 'W'</span></div>
 	    
 	    <!-- Rotate Tool -->
-		<div class="rotateTool" onclick="messenger.send('e')"><span>Rotate Tool</span></div>
+		<div class="rotateTool" onclick="messenger.send('e')"><span>Rotate Tool 'E'</span></div>
 		
 	    <!-- Scale Tool -->
-		<div class="scaleTool" onclick="messenger.send('r')"><span>Scale Tool</span></div>
+		<div class="scaleTool" onclick="messenger.send('r')"><span>Scale Tool 'R'</span></div>
 	
 	</div>
     

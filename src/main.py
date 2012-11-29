@@ -1,9 +1,10 @@
 #!/usr/bin/python
 
-# License
-
-#----------------------------------------------------------------------#
-
+__author__ = "MJ-meo-dmt"
+__license__ = """
+Simplified BSD (BSD 2-Clause) License.
+See License.txt or http://opensource.org/licenses/BSD-2-Clause for more info
+"""
 
 ## IMPORTS ##
 import os
