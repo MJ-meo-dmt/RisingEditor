@@ -1,0 +1,35 @@
+/* Basics */
+body {
+    z-index: -1;
+    width: 100%; 
+    height: 100%; 
+    margin: auto;
+    font-family:verdana;
+}
+
+/* EDITOR TOOLBAR AND DROP MENUS */
+.editorToolBar {
+    background-decorator: image;
+    background-image: ../../data_src/gui/images/editor_main/toolbar.png;
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 32px;
+    top:-4px;
+    
+}
+
+.editorFileBtn {
+    background-decorator:image;
+    background-image: ../../data_src/gui/images/editor_main/File_btn.png;
+    width:41px;
+    height:31px;
+    float:left;
+    margin-left:40px;
+    
+}
+
+.editorFileBtn:hover {
+    background-decorator:image;
+    background-image: ../../data_src/gui/images/editor_main/File_hover.png;
+}

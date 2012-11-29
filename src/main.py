@@ -64,14 +64,15 @@ class Editor(ShowBase):
 		self.editorGui = self.context.LoadDocument('gui_src/editor_main.rml')
 		self.editorGui.Show()
 		
-		## TEMP ##
-		self.accept('escape', sys.exit)
+		
 		
 		
 		# Temp gizmo runner
-		# This should run when open file is used.
 		self.gizmo = Gizmo(self)
 		
+		
+		## 
+		# This should run when open file is used.
 		self.levelload = LevelLoader(self)
 		self.levelload.read("level/jump.lvlml", False)
 		self.levelload.run()
