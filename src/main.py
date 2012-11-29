@@ -32,6 +32,7 @@ from direct.showbase.DirectObject import DirectObject
 
 ### EDITOR IMPORTS ###
 from Gizmo_tools import Gizmo
+from level.LevelLoader import LevelLoader
 ########################################################################
 ########################################################################
 
@@ -68,7 +69,12 @@ class Editor(ShowBase):
 		
 		
 		# Temp gizmo runner
-		self.gizmo = Gizmo()
+		self.gizmo = Gizmo(self)
+		
+		self.levelload = LevelLoader(self)
+		self.levelload.read("level/jump.lvlml", False)
+		self.levelload.run()
+		
 		
 
 		

@@ -13,7 +13,9 @@ PICK_TAG = 'pickable'
 
 class Gizmo( DirectObject ):
     
-    def __init__( self ):
+    def __init__( self, _base ):
+        
+        self.base = _base
         
         
         # Create mouse
@@ -61,13 +63,13 @@ class Gizmo( DirectObject ):
         self.gizmoPicker = gizmo_core.MousePicker( 'mouse', self.camera )
         self.gizmoPicker.Start()
         
-        # Create some objects
+        '''# Create some objects
         for i in range( 20 ):
             ball = loader.loadModel( 'smiley' )
             ball.setTag( PICK_TAG, '1' )
             ball.reparentTo( self.rootNp )
             ball.setPos( random.randint( -30, 30 ) * 2, random.randint( -30, 30 ) * 2, random.randint( -30, 30 ) * 2 )
-            ball.setScale( 10, 10, 10 )
+            ball.setScale( 10, 10, 10 )'''
         
         # Create a light
         dlight = DirectionalLight('dlight')

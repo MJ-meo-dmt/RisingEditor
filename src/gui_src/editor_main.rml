@@ -88,7 +88,10 @@ def printo():
 	    <!-- Scale Tool -->
 		<div class="scaleTool" onclick="messenger.send('r')"><span>Scale Tool 'R'</span></div>
 	
+	
 	</div>
+	
+	
     
     <!-- Sidebar -->
     
