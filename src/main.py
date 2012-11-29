@@ -29,6 +29,8 @@ from panda3d.rocket import *
 from direct.showbase.DirectObject import DirectObject
 
 
+### EDITOR IMPORTS ###
+from Gizmo_tools import Gizmo
 ########################################################################
 ########################################################################
 
@@ -62,7 +64,10 @@ class Editor(ShowBase):
 		
 		## TEMP ##
 		self.accept('escape', sys.exit)
-	
+		
+		
+		# Temp gizmo runner
+		self.gizmo = Gizmo()
 
 
 app = Editor()
