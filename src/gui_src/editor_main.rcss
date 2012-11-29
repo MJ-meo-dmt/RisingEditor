@@ -13,7 +13,7 @@ body {
 /* EDITOR TOOLBAR AND DROP MENUS */
 .editorToolBar {
     background-decorator: image;
-    background-image: ../../data_src/gui/images/toolbar.png;
+    background-image: ../../data_src/gui/images/editor_main/toolbar.png;
     z-index: 2;
     position: absolute;
     width: 100%;
@@ -24,7 +24,7 @@ body {
 
 .editorFileBtn {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/File_btn.png;
+    background-image: ../../data_src/gui/images/editor_main/File_btn.png;
     width:41px;
     height:31px;
     float:left;
@@ -34,12 +34,12 @@ body {
 
 .editorFileBtn:hover {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/File_hover.png;
+    background-image: ../../data_src/gui/images/editor_main/File_hover.png;
 }
 
 .editorEditBtn {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/Edit_btn.png;
+    background-image: ../../data_src/gui/images/editor_main/Edit_btn.png;
     width:41px;
     height:31px;
     margin-left:-12px;
@@ -49,12 +49,12 @@ body {
 
 .editorEditBtn:hover {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/Edit_hover.png;
+    background-image: ../../data_src/gui/images/editor_main/Edit_hover.png;
 }
 
 .editorViewBtn {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/View_btn.png;
+    background-image: ../../data_src/gui/images/editor_main/View_btn.png;
     width:41px;
     height:31px;
     margin-left:-12px;
@@ -64,12 +64,12 @@ body {
 
 .editorViewBtn:hover {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/View_hover.png;
+    background-image: ../../data_src/gui/images/editor_main/View_hover.png;
 }
 
 .editorHelpBtn {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/Help_btn.png;
+    background-image: ../../data_src/gui/images/editor_main/Help_btn.png;
     width:41px;
     height:31px;
     margin-left:-12px;
@@ -80,7 +80,7 @@ body {
 
 .editorHelpBtn:hover {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/Help_hover.png;
+    background-image: ../../data_src/gui/images/editor_main/Help_hover.png;
     margin-top:1px;
 }
 
@@ -110,7 +110,7 @@ select selectbox option {
     width: auto;
     padding-left: 3px;
     background-decorator:image;
-    background-image: ../../data_src/gui/images/dropbox.png;
+    background-image: ../../data_src/gui/images/editor_main/dropbox.png;
     border-style:solid;
     border-width:1px;
     border-color:#6ca5ca;
@@ -126,7 +126,7 @@ select selectbox option:hover {
 
 .sidebar {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/sidebar.png;
+    background-image: ../../data_src/gui/images/editor_main/sidebar.png;
     width: 48px;
     height: 300px;
     position:absolute;
@@ -139,7 +139,7 @@ select selectbox option:hover {
 
 .moveTool {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/move_tool.png;
+    background-image: ../../data_src/gui/images/editor_main/move_tool.png;
     width:32px;
     height:32px;
     float:left;
@@ -161,7 +161,7 @@ select selectbox option:hover {
 
 .rotateTool {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/rotate_tool.png;
+    background-image: ../../data_src/gui/images/editor_main/rotate_tool.png;
     width:32px;
     height:32px;
     float:left;
@@ -182,7 +182,7 @@ select selectbox option:hover {
 
 .scaleTool {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/scale_tool.png;
+    background-image: ../../data_src/gui/images/editor_main/scale_tool.png;
     width:32px;
     height:32px;
     float:left;

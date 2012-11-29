@@ -69,6 +69,7 @@ class Editor(ShowBase):
 		
 		
 		# Temp gizmo runner
+		# This should run when open file is used.
 		self.gizmo = Gizmo(self)
 		
 		self.levelload = LevelLoader(self)
