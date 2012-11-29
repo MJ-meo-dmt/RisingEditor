@@ -1,0 +1,15 @@
+Rising Editor.
+version: 0.1
+
+#######
+MJ-meo-dmt
+
+#######
+
+FIX:
+
+- Rotating goes crazy if mouse moved in certain way.
+- Axis "map" in right corner doesn't scale with window scaling, it's hard coded.
+- Fix selection start and end with a shortcut key
+- Fix the Tool selection and deselection bug
+- 
