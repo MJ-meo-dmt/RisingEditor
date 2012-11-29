@@ -83,10 +83,10 @@ def printo():
 		<div class="moveTool" onclick="messenger.send('w')"><span>Move Tool</span></div>
 	    
 	    <!-- Rotate Tool -->
-		<div class="rotateTool"><span>Rotate Tool</span></div>
+		<div class="rotateTool" onclick="messenger.send('e')"><span>Rotate Tool</span></div>
 		
 	    <!-- Scale Tool -->
-		<div class="scaleTool"><span>Scale Tool</span></div>
+		<div class="scaleTool" onclick="messenger.send('r')"><span>Scale Tool</span></div>
 	
 	</div>
     

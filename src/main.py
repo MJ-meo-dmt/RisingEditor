@@ -68,6 +68,9 @@ class Editor(ShowBase):
 		
 		# Temp gizmo runner
 		self.gizmo = Gizmo()
+		
+
+		
 
 
 app = Editor()
