@@ -68,7 +68,6 @@ class Editor(ShowBase):
 		self.dialog.Show()
 		
 		
-		
 		# Temp gizmo runner
 		self.gizmo = Gizmo(self)
 		

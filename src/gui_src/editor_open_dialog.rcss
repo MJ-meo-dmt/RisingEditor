@@ -33,8 +33,8 @@ body {
     width:64px;
     height:32px;
     float:left;
-    margin-top:250px;
-    margin-left:105px;
+    margin-top:18px;
+    margin-left:112px;
 }
 
 .cancel_btn:hover {
@@ -48,7 +48,7 @@ body {
     width:64px;
     height:32px;
     float:left;
-    margin-top:251px;
+    margin-top:19px;
     margin-left:5px;
 }
 
@@ -56,11 +56,6 @@ body {
     background-decorator: image;
     background-image: ../../data_src/gui/images/open_dialog/open_btn_hover.png;
 }
-
-
-
-
-
 
 
 
