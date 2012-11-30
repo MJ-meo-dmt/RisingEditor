@@ -1,35 +1,71 @@
 /* Basics */
 body {
     z-index: -1;
-    width: 100%; 
-    height: 100%; 
+    width: 256px; 
+    height: 310px;
     margin: auto;
     font-family:verdana;
 }
 
-/* EDITOR TOOLBAR AND DROP MENUS */
-.editorToolBar {
+/* FILE OPEN DIALOG */
+
+.dialog {
     background-decorator: image;
-    background-image: ../../data_src/gui/images/editor_main/toolbar.png;
-    z-index: 2;
-    position: absolute;
-    width: 100%;
-    height: 32px;
-    top:-4px;
-    
+    background-image: ../../data_src/gui/images/open_dialog/open_dialog.png;
+    width:256px;
+    height:310px;
+    position:absolute;
 }
 
-.editorFileBtn {
+.dirView {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/editor_main/File_btn.png;
-    width:41px;
-    height:31px;
+    background-image: ../../data_src/gui/images/open_dialog/file_viewer.png;
+    width:240px;
+    height:230px;
     float:left;
-    margin-left:40px;
-    
+    margin-top:25px;
+    margin-left:8px;
 }
 
-.editorFileBtn:hover {
+.cancel_btn {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/editor_main/File_hover.png;
+    background-image: ../../data_src/gui/images/open_dialog/cancel_btn.png;
+    width:64px;
+    height:32px;
+    float:left;
+    margin-top:250px;
+    margin-left:105px;
 }
+
+.cancel_btn:hover {
+    background-decorator: image;
+    background-image: ../../data_src/gui/images/open_dialog/cancel_btn_hover.png;
+}
+
+.open_btn {
+    background-decorator:image;
+    background-image: ../../data_src/gui/images/open_dialog/open_btn.png;
+    width:64px;
+    height:32px;
+    float:left;
+    margin-top:251px;
+    margin-left:5px;
+}
+
+.open_btn:hover {
+    background-decorator: image;
+    background-image: ../../data_src/gui/images/open_dialog/open_btn_hover.png;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

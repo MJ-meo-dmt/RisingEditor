@@ -64,6 +64,8 @@ class Editor(ShowBase):
 		self.editorGui = self.context.LoadDocument('gui_src/editor_main.rml')
 		self.editorGui.Show()
 		
+		self.dialog = self.context.LoadDocument('gui_src/editor_open_dialog.rml')
+		self.dialog.Show()
 		
 		
 		

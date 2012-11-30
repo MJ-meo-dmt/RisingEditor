@@ -1,6 +1,6 @@
 <rml>
 	<head>
-		<link type="text/rcss" href="editor_main.rcss"/>
+		<link type="text/rcss" href="editor_open_dialog.rcss"/>
 		
 	
 <title>Open File Dialog</title>
@@ -16,7 +16,20 @@
 
 <body>
 	
-    <!-- editorToolBar -->
+    <!-- Dialog window -->
+	<div class="dialog">
+	
+	    <!-- Dir viewer -->
+		<div class="dirView">
+		    
+		    <!-- Dialog Buttons -->
+			<div class="cancel_btn"></div>
+			<div class="open_btn"></div>
+			
+		
+		</div>
+	
+	</div>
 	
     
 </body>
