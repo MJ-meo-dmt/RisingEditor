@@ -83,15 +83,9 @@ class Editor(ShowBase):
 			for name in files:
 				filepath = os.path.join(root, name)
 				if filepath.endswith(".egg"):
-					print "open"
-					self.createElement("div", name)
-					print "close"
 					
-		
-		
-		
-		# Make a list type and then build a custom element with added
-		# script onclick
+					self.createElement("div", name)
+					
 		
 		# Temp gizmo runner
 		self.gizmo = Gizmo(self)
