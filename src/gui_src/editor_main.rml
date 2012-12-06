@@ -91,9 +91,22 @@ def printo():
 	
 	</div>
 	
-	
-    
     <!-- Sidebar -->
+    
+    <!-- Object Viewer -->
+    
+	<div class="objectViewer">
+	    
+	    <div class="fileview" id="filepathlist">
+		
+		<div id="filepaths">One</div>
+		
+		
+	    </div>
+	    
+	</div>
+    
+    <!-- Object Viewer -->
     
 </body>
 </rml>

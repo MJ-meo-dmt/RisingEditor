@@ -64,9 +64,33 @@ class Editor(ShowBase):
 		self.editorGui = self.context.LoadDocument('gui_src/editor_main.rml')
 		self.editorGui.Show()
 		
-		self.dialog = self.context.LoadDocument('gui_src/editor_open_dialog.rml')
-		self.dialog.Show()
+		#self.dialog = self.context.LoadDocument('gui_src/editor_open_dialog.rml')
+		#self.dialog.Show()
 		
+		
+		
+		########################
+		# Just build a basic simple file folder loader viewer thing for now
+		# Something that loads or shows the contents of a dir hard coded
+		# 
+		# editor: model, model1, model2, model3
+		# and the texture folders, so that when clicked they can be added into the editor scene
+		cwd = os.getcwd()
+		self.baseModelDir = cwd + "\models"
+		
+		
+		for root, dirs, files in os.walk(self.baseModelDir):
+			for name in files:
+				filepath = os.path.join(root, name)
+				if filepath.endswith(".egg"):
+					
+					self.createElement("div", name)
+					
+		
+		
+		
+		# Make a list type and then build a custom element with added
+		# script onclick
 		
 		# Temp gizmo runner
 		self.gizmo = Gizmo(self)
@@ -78,9 +102,22 @@ class Editor(ShowBase):
 		self.levelload.read("level/jump.lvlml", False)
 		self.levelload.run()
 		
+	def createElement(self, element, data):
 		
-
+		# Get element on document
+		fileview = self.editorGui.GetElementById("filepathlist")
+		print fileview
+		# Create element
+		entry = self.editorGui.CreateElement(element)
+		entry.DispatchEvent("onclick", {"object" : "hello"}, True)
+		entry2 = self.editorGui.CreateElement('br')
 		
+		# Add text to display
+		entry.inner_rml = data
+		
+		# Add element to base element
+		fileview.AppendChild(entry2)
+		fileview.AppendChild(entry)
 
 
 app = Editor()

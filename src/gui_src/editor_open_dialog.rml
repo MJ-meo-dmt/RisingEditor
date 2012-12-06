@@ -7,12 +7,8 @@
 
 <!-- // Scripts -->
 <script>
-import os
 
-def cwd():
-    cwdir = os.getcwd()
-    print """
-	<p>%s</p>""" %cwdir
+    
 </script>
 
 <!-- Scripts // -->
@@ -26,7 +22,8 @@ def cwd():
 	
 	    <!-- Dir viewer -->
 		<div class="dirView">
-		   <p onclick="cwd()">CLICK HERE</p>
+		    <p>Enter Path to model</p>
+		   <input type=text value=""></input>
 		</div>
 		
 	    <!-- Dialog Buttons -->

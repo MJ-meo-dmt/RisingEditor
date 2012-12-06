@@ -130,7 +130,7 @@ select selectbox option:hover {
     width: 48px;
     height: 300px;
     position:absolute;
-    z-index:0;
+    z-index:2;
     left:-1px;
     top:24px;
 }
@@ -205,4 +205,22 @@ select selectbox option:hover {
 
 
 
+/* OBJECT VIEWER */
+
+.objectViewer {
+    background-decorator: image;
+    background-image: ../../data_src/gui/images/editor_main/obj_viewer.png;
+    width:245px;
+    height:356px;
+    float:left;
+    position:absolute;
+    left:910px;
+    top:90px;
+}
+
+.fileview {
+    float:left;
+    margin-left:14px;
+    margin-top:26px;
+}
 
