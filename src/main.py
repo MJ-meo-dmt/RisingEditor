@@ -107,12 +107,12 @@ class Editor(ShowBase):
 		# Search each div and add a event
 		entries = self.editorGui.GetElementById("filepathlist")
 		for child in entries.child_nodes:
+			name = child.id
 			if child.tag_name == "div":
 				
-				print child.inner_rml
-				if child.id in child.inner_rml:
-					
-					child.AddEventListener('click', lambda:self.addModelToScene(child.id), True)
+				print child.id
+
+				child.AddEventListener('click', lambda:self.addModelToScene(name), True)
 				
 	
 		
