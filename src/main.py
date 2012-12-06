@@ -109,7 +109,7 @@ class Editor(ShowBase):
 		print fileview
 		# Create element
 		entry = self.editorGui.CreateElement(element)
-		entry.DispatchEvent("onclick", {"object" : "hello"}, True)
+		entry.AddEventListener('click', "print('HELLOOOO')", True)
 		entry2 = self.editorGui.CreateElement('br')
 		
 		# Add text to display
