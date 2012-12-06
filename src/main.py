@@ -102,6 +102,15 @@ class Editor(ShowBase):
 		self.levelload.read("level/jump.lvlml", False)
 		self.levelload.run()
 		
+		
+		# Search each div and add a event
+		entries = self.editorGui.GetElementById("filepathlist")
+		for child in entries.child_nodes:
+			if child.tag_name == "div":
+				child.AddEventListener('click', lambda:self.addModelToScene('pah'), True)
+				
+	
+		
 	def createElement(self, element, data):
 		
 		# Get element on document
@@ -109,7 +118,7 @@ class Editor(ShowBase):
 		print fileview
 		# Create element
 		entry = self.editorGui.CreateElement(element)
-		entry.AddEventListener('click', "print('HELLOOOO')", True)
+		entry.SetAttribute("id", "file")
 		entry2 = self.editorGui.CreateElement('br')
 		
 		# Add text to display
@@ -118,6 +127,11 @@ class Editor(ShowBase):
 		# Add element to base element
 		fileview.AppendChild(entry2)
 		fileview.AppendChild(entry)
+	
+	def addModelToScene(self, path):
+		self.path = path 
+		print self.path
+
 
 
 app = Editor()
