@@ -104,18 +104,6 @@ class Editor(ShowBase):
 		self.levelload.run()
 		
 		
-		# Search each div and add a event
-		entries = self.editorGui.GetElementById("filepathlist")
-		for child in entries.child_nodes:
-			name = child.id
-			if child.tag_name == "div":
-				
-				print child.id
-
-				child.AddEventListener('click', lambda:self.addModelToScene(name), True)
-				
-	
-		
 	def createElement(self, element, data):
 		
 		# Get element on document
@@ -123,6 +111,7 @@ class Editor(ShowBase):
 		# Create element
 		entry = self.editorGui.CreateElement(element)
 		entry.SetAttribute("id", data)
+		entry.AddEventListener('click', lambda:self.addModelToScene(data), True)
 		entry2 = self.editorGui.CreateElement('br')
 		
 		# Add text to display
@@ -135,6 +124,8 @@ class Editor(ShowBase):
 	def addModelToScene(self, path):
 		self.path = path 
 		print self.path
+		
+		
 
 
 
