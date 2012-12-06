@@ -83,8 +83,9 @@ class Editor(ShowBase):
 			for name in files:
 				filepath = os.path.join(root, name)
 				if filepath.endswith(".egg"):
-					
+					print "open"
 					self.createElement("div", name)
+					print "close"
 					
 		
 		
@@ -107,7 +108,11 @@ class Editor(ShowBase):
 		entries = self.editorGui.GetElementById("filepathlist")
 		for child in entries.child_nodes:
 			if child.tag_name == "div":
-				child.AddEventListener('click', lambda:self.addModelToScene('pah'), True)
+				
+				print child.inner_rml
+				if child.id in child.inner_rml:
+					
+					child.AddEventListener('click', lambda:self.addModelToScene(child.id), True)
 				
 	
 		
@@ -115,15 +120,14 @@ class Editor(ShowBase):
 		
 		# Get element on document
 		fileview = self.editorGui.GetElementById("filepathlist")
-		print fileview
 		# Create element
 		entry = self.editorGui.CreateElement(element)
-		entry.SetAttribute("id", "file")
+		entry.SetAttribute("id", data)
 		entry2 = self.editorGui.CreateElement('br')
 		
 		# Add text to display
 		entry.inner_rml = data
-		
+		print data
 		# Add element to base element
 		fileview.AppendChild(entry2)
 		fileview.AppendChild(entry)
