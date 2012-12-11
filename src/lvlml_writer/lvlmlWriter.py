@@ -22,6 +22,8 @@ class LvlmlWriter():
         authorname = "Someone"
         datetext = "2012-12-12"
         levelname = "levelname"
+        modelPath = "blabla/blabla/bla.egg"
+        modelScale = "1"
         
         ##########################
         
@@ -57,6 +59,7 @@ class LvlmlWriter():
         scale = xml.Element("scale")
         scale.text = modelScale
         basemodel.append(scale)
+        level.append(basemodel)
         ##>
         
         ## GroundCol ##
@@ -98,15 +101,15 @@ class LvlmlWriter():
         
         
         
-        
-        
-        
         file = open("test.lvlml", 'w')
         
         xml.ElementTree(level).write(file)
         
         file.close()
-    
-
+        print "Done..."
+        
+        
+    def addLights(self):
+        pass
 
 writer = LvlmlWriter()
