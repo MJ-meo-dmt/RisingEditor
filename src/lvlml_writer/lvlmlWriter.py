@@ -69,6 +69,7 @@ class LvlmlWriter():
         collision = xml.Element('collision')
         collision.attrib['modelname'] = "collision"
         groundCol.append(collision)
+        level.append(groundCol)
         ##>
         
         ## Startpos ##
@@ -82,6 +83,7 @@ class LvlmlWriter():
         startHpr = xml.Element('hpr')
         startHpr.attrib["nodename"] = "startpos"
         startPosition.append(startHpr)
+        level.append(startPosition)
         ##>
         
         ## Level exit ##
@@ -91,6 +93,7 @@ class LvlmlWriter():
         exitCollision = xml.Element('collision')
         exitCollision.attrib['modelName'] = "exit"
         levelExit.append(exitCollision)
+        level.append(levelExit)
         ##>
         
         ## Lights ##
@@ -103,13 +106,17 @@ class LvlmlWriter():
         
         file = open("test.lvlml", 'w')
         
-        xml.ElementTree(level).write(file)
+        xml.ElementTree(level).write(file, "utf-8", "xml")
         
         file.close()
         print "Done..."
         
         
-    def addLights(self):
-        pass
+    def addLights(self, type, pos, color=Vec4(.5, .5, .5, 1)):
+        
+        self.type = type
+        self.position = pos 
+        self.color = color
+        
 
 writer = LvlmlWriter()
