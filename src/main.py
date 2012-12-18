@@ -256,10 +256,18 @@ class FileBrowser():
 		# el if not .egg say its not right is other type
 		# else if dir open that dir and display the files 
 		
+		# use open for lvlml type files and normal egg files get imported
+		
 		modelDir = Filename.fromOsSpecific(filepath)
-		self.levelload = LevelLoader(self)
-		self.levelload.read(str(modelDir), False)
-		self.levelload.run()
+		
+		self.model = loader.loadModel(modelDir)
+		self.model.reparentTo(self.base.gizmo.rootNp)
+		
+		
+		#print Filename.exists(modelDir)
+		#self.levelload = LevelLoader(self)
+		#self.levelload.read(str(modelDir), False)
+		#self.levelload.run()
 
 	def openFolderDir(self, path):
 		self.path = path 
