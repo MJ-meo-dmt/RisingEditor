@@ -230,7 +230,7 @@ class FileBrowser(DirectObject):
 		filepathlist = self.tempDir.split('/')
 		del filepathlist[-1]
 		
-		self.tempStr = "/".join(filepathlist)
+		self.tempStr = os.path.sep.join(filepathlist)
 		self.currentDir = self.tempStr
 		print filepathlist
 		print self.tempStr
