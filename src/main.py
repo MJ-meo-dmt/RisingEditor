@@ -27,6 +27,7 @@ loadPrcFileData("",
 from direct.showbase.ShowBase import ShowBase
 from pandac.PandaModules import *
 from panda3d.rocket import *
+from panda3d.core import Filename
 from direct.showbase.DirectObject import DirectObject
 
 
@@ -81,7 +82,7 @@ class Editor(ShowBase):
 		
 		## BASE DIR ##
 		currentDir = os.getcwd()
-		self.baseDir = cwd + "\models"
+		self.baseDir = currentDir + "\models"
 		
 		
 	#------------------------------------------------------------------#
@@ -136,7 +137,7 @@ class Editor(ShowBase):
 		Handle the opening of a file browser dialog, browsing and
 		opening of files selected.
 		"""
-		pass
+		self.fileBrowser = FileBrowser(self, self.baseDir)
 		
 	def Save(self):
 		"""
@@ -193,7 +194,9 @@ class Editor(ShowBase):
 
 class FileBrowser():
 	
-	def __init__(self, baseDir):
+	def __init__(self, _base, baseDir):
+		
+		self.base = _base
 		
 		self.selectedFile = None
 		
@@ -201,20 +204,41 @@ class FileBrowser():
 		for root, dirs, files in os.walk(baseDir):
 			for name in files:
 				filepath = os.path.join(root, name)
+	
 				if filepath.endswith(".egg"):
 					
-					self.createElement("div", name)
+					self.createElementModel("div", name, filepath)
+			
+			for dir in dirs:
+				
+				self.createElementDir("div", dir)
 
-
-	def createElement(self, element, data):
+	def createElementModel(self, element, data, filepath):
 		
 		# Get element on document
-		fileview = self.editorGui.GetElementById("filepathlist")
+		fileview = self.base.editorGui.GetElementById("filepathlist")
 		# Create element
-		entry = self.editorGui.CreateElement(element)
+		entry = self.base.editorGui.CreateElement(element)
 		entry.SetAttribute("id", data)
-		entry.AddEventListener('click', lambda:self.addModelToScene(data), True)
-		entry2 = self.editorGui.CreateElement('br')
+		entry.AddEventListener('click', lambda:self.addModelToScene(data, filepath), True)
+		entry2 = self.base.editorGui.CreateElement('br')
+		
+		# Add text to display
+		entry.inner_rml = data
+		print data
+		# Add element to base element
+		fileview.AppendChild(entry2)
+		fileview.AppendChild(entry)
+		
+	def createElementDir(self, element, data):
+		
+		# Get element on document
+		fileview = self.base.editorGui.GetElementById("filepathlist")
+		# Create element
+		entry = self.base.editorGui.CreateElement(element)
+		entry.SetAttribute("id", data)
+		entry.AddEventListener('click', lambda:self.openFolderDir(data), True)
+		entry2 = self.base.editorGui.CreateElement('br')
 		
 		# Add text to display
 		entry.inner_rml = data
@@ -224,15 +248,22 @@ class FileBrowser():
 		fileview.AppendChild(entry)
 
 
-	def addModelToScene(self, path):
+	def addModelToScene(self, path, filepath):
 		self.path = path 
-		print self.path
+		
 		# Add a if type check in here so that it checks
 		# if file.egg ask to open
 		# el if not .egg say its not right is other type
 		# else if dir open that dir and display the files 
+		
+		modelDir = Filename.fromOsSpecific(filepath)
+		self.levelload = LevelLoader(self)
+		self.levelload.read(str(modelDir), False)
+		self.levelload.run()
 
-
+	def openFolderDir(self, path):
+		self.path = path 
+		print self.path, "Folder Dir"
 
 
 

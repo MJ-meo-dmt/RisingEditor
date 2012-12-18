@@ -87,7 +87,7 @@ class LevelData:
         for obj in objects:
             print obj
             obj.setTag( PICK_TAG, '1' )
-        
+        print self.model
         self.model.reparentTo(self.base.base.gizmo.rootNp)
 
     def cleanup(self):
