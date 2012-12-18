@@ -29,11 +29,11 @@ def printo():
 	    <div class="editorFileBtn">
 		    
 		<select>
-		    <option><div onclick="printo()">New</div></option>
-		    <option><div onclick="printo()">Open</div></option>
-		    <option><div onclick="printo()">Save</div></option>
-		    <option><div onclick="printo()">Import</div></option>
-		    <option><div onclick="printo()">Export</div></option>
+		    <option><div onclick="messenger.send('new')">New</div></option>
+		    <option><div onclick="messenger.send('open')">Open</div></option>
+		    <option><div onclick="messenger.send('save')">Save</div></option>
+		    <option><div onclick="messenger.send('import')">Import</div></option>
+		    <option><div onclick="messenger.send('export')">Export</div></option>
 		    <option><div onclick="exit()">Exit</div></option>
 		</select>
 	

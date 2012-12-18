@@ -37,7 +37,7 @@ from level.LevelLoader import LevelLoader
 ########################################################################
 
 
-### MAIN APP CLASS ###
+### EDITOR BASE ###
 
 class Editor(ShowBase):
 	
@@ -45,28 +45,56 @@ class Editor(ShowBase):
 		
 		ShowBase.__init__(self)
 		
-		## Load a font type ##
+	#------------------------------------------------------------------#
+	#
+	# 	SETUP BASIC LIBROCKET
+	#
+	#------------------------------------------------------------------#
+		
+		## LOAD FONT ##
 		LoadFontFace("../data_src/gui/fonts/verdana.ttf")
 		
-		## Setup librocket and the input handler ##
+		## SETUP REGION & INPUT HANDLER ##
 		rw = RocketRegion.make('pandaRocket', base.win)
 		rw.setActive(1)
 		
-		# Handler
 		ih = RocketInputHandler()
 		base.mouseWatcher.attachNewNode(ih)
 		rw.setInputHandler(ih)
 		
-		# Setup context
+		## CONTEXT ##
 		self.context = rw.getContext()
 		
-		# Setup Editor gui
+		## SETUP MAIN EDITOR WINDOW & GUI ##
 		self.editorGui = self.context.LoadDocument('gui_src/editor_main.rml')
 		self.editorGui.Show()
 		
 		#self.dialog = self.context.LoadDocument('gui_src/editor_open_dialog.rml')
 		#self.dialog.Show()
+	
+	
+	#------------------------------------------------------------------#
+	#
+	# 	EDITOR DEFAULT SETUP
+	#
+	#------------------------------------------------------------------#
 		
+		## BASE DIR ##
+		currentDir = os.getcwd()
+		self.baseDir = cwd + "\models"
+		
+		
+	#------------------------------------------------------------------#
+	#
+	# 	EDITOR EVENTS
+	#
+	#------------------------------------------------------------------#
+		
+		self.accept('new', self.New)
+		self.accept('open', self.Open)
+		self.accept('save', self.Save)
+		self.accept('import', self.Import)
+		self.accept('export', self.Export)
 		
 		
 		########################
@@ -75,18 +103,8 @@ class Editor(ShowBase):
 		# 
 		# editor: model, model1, model2, model3
 		# and the texture folders, so that when clicked they can be added into the editor scene
-		cwd = os.getcwd()
-		self.baseModelDir = cwd + "\models"
 		
-		
-		for root, dirs, files in os.walk(self.baseModelDir):
-			for name in files:
-				filepath = os.path.join(root, name)
-				if filepath.endswith(".egg"):
-					
-					self.createElement("div", name)
-					
-		
+	
 		# Temp gizmo runner
 		self.gizmo = Gizmo(self)
 		
@@ -98,6 +116,96 @@ class Editor(ShowBase):
 		self.levelload.run()
 		
 		
+	#------------------------------------------------------------------#
+	#
+	# 	FILE DROP LIST
+	#
+	#------------------------------------------------------------------#
+	
+	def New(self):
+		"""
+		Handle the clearing for a new fresh scene.
+		"""
+		
+		for node in self.gizmo.rootNp.getChildren():
+			print node
+			node.remove_node()
+			
+	def Open(self):
+		"""
+		Handle the opening of a file browser dialog, browsing and
+		opening of files selected.
+		"""
+		pass
+		
+	def Save(self):
+		"""
+		Handle the saving of the scene, maybe even write out to file.
+		Also handle the lvlml writeout.
+		"""
+		pass 
+		
+	def Import(self):
+		"""
+		Handle importing files.
+		*Atm not needed
+		"""
+		pass 
+		
+	def Export(self):
+		"""
+		Handle exporting files.
+		*Could be used for lvlml files and direct write out to bam or egg only??
+		*Not used atm
+		"""
+		pass
+		
+		
+	#------------------------------------------------------------------#
+	#
+	# 	EDIT DROP LIST
+	#
+	#------------------------------------------------------------------#
+	
+	#------------------------------------------------------------------#
+	#
+	# 	VIEW DROP LIST
+	#
+	#------------------------------------------------------------------#
+	
+	#------------------------------------------------------------------#
+	#
+	# 	HELP DROP LIST
+	#
+	#------------------------------------------------------------------#
+
+
+
+########################################################################>
+#
+#  EDITOR BASE END
+#
+########################################################################>
+
+
+
+### EDITOR FILE BROWSER ###
+
+class FileBrowser():
+	
+	def __init__(self, baseDir):
+		
+		self.selectedFile = None
+		
+		## LOOP DIR ##
+		for root, dirs, files in os.walk(baseDir):
+			for name in files:
+				filepath = os.path.join(root, name)
+				if filepath.endswith(".egg"):
+					
+					self.createElement("div", name)
+
+
 	def createElement(self, element, data):
 		
 		# Get element on document
@@ -114,15 +222,41 @@ class Editor(ShowBase):
 		# Add element to base element
 		fileview.AppendChild(entry2)
 		fileview.AppendChild(entry)
-	
+
+
 	def addModelToScene(self, path):
 		self.path = path 
 		print self.path
-		
-		
+		# Add a if type check in here so that it checks
+		# if file.egg ask to open
+		# el if not .egg say its not right is other type
+		# else if dir open that dir and display the files 
+
+
+
+
+
 
 
 
 app = Editor()
 
 app.run()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

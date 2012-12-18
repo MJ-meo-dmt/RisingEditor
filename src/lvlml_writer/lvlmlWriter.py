@@ -17,6 +17,9 @@ class LvlmlWriter():
     
     def __init__(self):
         
+        # Filename
+        filename = "test.lvlml"
+        
         # Test vars
         id = "jumplevel"
         authorname = "Someone"
@@ -100,15 +103,24 @@ class LvlmlWriter():
         lights = xml.Element('lights')
         
         # inside lights run method to add more lights
+        # Add mass and other physics details inside lvlml files
+        # they will construct the levels themselfs
+        # each egg will be alone apart from all the basic level stuff for a level egg
+        # Add the plugin system!!
+        # Add config for editor plugins
         
         
+        #### WRITE OUT ####
         
-        
-        file = open("test.lvlml", 'w')
-        
-        xml.ElementTree(level).write(file, "utf-8", "xml")
-        
-        file.close()
+        try:
+            
+            file = open(filename, 'w')
+            xml.ElementTree(level).write(file, "utf-8", "xml")
+            file.close()
+            
+        except:
+            print "Error couldn't write file out!"
+            
         print "Done..."
         
         
