@@ -192,13 +192,19 @@ class Editor(ShowBase):
 
 ### EDITOR FILE BROWSER ###
 
-class FileBrowser():
+class FileBrowser(DirectObject):
 	
 	def __init__(self, _base, baseDir):
 		
 		self.base = _base
 		
+		self.currentDir = baseDir
+		
+		print self.currentDir
 		self.selectedFile = None
+		
+		## EVENTS ##
+		self.accept('b', self.goBack)
 		
 		## LOOP DIR ##
 		for root, dirs, files in os.walk(baseDir):
@@ -208,12 +214,45 @@ class FileBrowser():
 				if filepath.endswith(".egg"):
 					
 					self.createElementModel("div", name, filepath)
+					
+				if filepath.endswith(".lvlml"):
+					
+					self.createElementLvlml("div", name, filepath)
 			
 			for dir in dirs:
 				
 				self.createElementDir("div", dir)
-
+	
+	def goBack(self):
+		
+		self.tempDir = str(Filename.fromOsSpecific(self.currentDir))
+		
+		filepathlist = self.tempDir.split('/')
+		del filepathlist[-1]
+		
+		self.tempStr = "/".join(filepathlist)
+		self.currentDir = self.tempStr
+		print filepathlist
+		print self.tempStr
+	
 	def createElementModel(self, element, data, filepath):
+		
+		# Get element on document
+		fileview = self.base.editorGui.GetElementById("filepathlist")
+		# Create element
+		entry = self.base.editorGui.CreateElement(element)
+		entry.SetAttribute("id", data)
+		entry.AddEventListener('click', lambda:self.importModelToScene(data, filepath), True)
+		entry2 = self.base.editorGui.CreateElement('br')
+		
+		# Add text to display
+		entry.inner_rml = data
+		print data
+		# Add element to base element
+		fileview.AppendChild(entry2)
+		fileview.AppendChild(entry)
+	
+	def createElementLvlml(self, element, data, filepath):
 		
 		# Get element on document
 		fileview = self.base.editorGui.GetElementById("filepathlist")
@@ -248,7 +287,7 @@ class FileBrowser():
 		fileview.AppendChild(entry)
 
 
-	def addModelToScene(self, path, filepath):
+	def importModelToScene(self, path, filepath):
 		self.path = path 
 		
 		# Add a if type check in here so that it checks
@@ -268,6 +307,16 @@ class FileBrowser():
 		#self.levelload = LevelLoader(self)
 		#self.levelload.read(str(modelDir), False)
 		#self.levelload.run()
+		
+	def addModelToScene(self, path, filepath):
+		self.path = path
+		
+		modelDir = Filename.fromOsSpecific(filepath)
+		
+		print Filename.exists(modelDir)
+		self.levelload = LevelLoader(self)
+		self.levelload.read(str(modelDir), False)
+		self.levelload.run()
 
 	def openFolderDir(self, path):
 		self.path = path 
