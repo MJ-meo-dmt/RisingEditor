@@ -205,9 +205,13 @@ class FileBrowser(DirectObject):
 		
 		## EVENTS ##
 		self.accept('b', self.goBack)
+	
+		self.tempDirView = self.dirViewer(self.currentDir)
+	
+	def dirViewer(self, dir):
 		
 		## LOOP DIR ##
-		for root, dirs, files in os.walk(baseDir):
+		for root, dirs, files in os.walk(dir):
 			for name in files:
 				filepath = os.path.join(root, name)
 	
@@ -235,6 +239,7 @@ class FileBrowser(DirectObject):
 		print filepathlist
 		print self.tempStr
 	
+	
 	def createElementModel(self, element, data, filepath):
 		
 		# Get element on document
@@ -251,6 +256,7 @@ class FileBrowser(DirectObject):
 		# Add element to base element
 		fileview.AppendChild(entry2)
 		fileview.AppendChild(entry)
+	
 	
 	def createElementLvlml(self, element, data, filepath):
 		
@@ -321,6 +327,9 @@ class FileBrowser(DirectObject):
 	def openFolderDir(self, path):
 		self.path = path 
 		print self.path, "Folder Dir"
+		del self.tempDirView
+		self.tempDirView = self.dirViewer(path)
+		
 
 
 
