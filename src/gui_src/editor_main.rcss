@@ -212,9 +212,9 @@ select selectbox option:hover {
     background-image: ../../data_src/gui/images/editor_main/obj_viewer.png;
     width:245px;
     height:356px;
-    float:left;
-    position:absolute;
-    left:910px;
+    float:right;
+    position:relative;
+    right:0px;
     top:90px;
 }
 

@@ -22,9 +22,15 @@ body {
     background-image: ../../data_src/gui/images/open_dialog/file_viewer.png;
     width:240px;
     height:230px;
-    float:left;
+    display: block;
     margin-top:25px;
     margin-left:8px;
+    overflow-y:auto;
+}
+
+scrollbarvertical
+{
+	width: 27px;
 }
 
 .cancel_btn {
