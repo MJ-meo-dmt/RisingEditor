@@ -28,6 +28,24 @@ body {
     overflow-y:auto;
 }
 
+.file_egg {
+    display:block;
+    background-color:green;
+    width:100%;
+}
+
+.file_lvlml {
+    display:block;
+    background-color:blue;
+    width:100%;
+}
+
+.directory {
+    display:block;
+    background-color:red;
+    width:100%;
+}
+
 scrollbarvertical
 {
 	width: 27px;
