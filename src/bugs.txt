@@ -12,4 +12,4 @@ FIX:
 - Axis "map" in right corner doesn't scale with window scaling, it's hard coded.
 - Fix selection start and end with a shortcut key
 - Fix the Tool selection and deselection bug
-- 
+- Cancel Gizmo section/use when in filebrowser or anything else for that matter.. 

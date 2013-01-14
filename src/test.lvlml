@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<level id="172609128"><author>anonymous</author><date>10/01/13</date><name>unnamed</name><basemodel><model>blabla/blabla/bla.egg</model><scale>1</scale></basemodel><groundCollision><collision modelname="collision" /></groundCollision><startpos><position nodeName="startpos" /><hpr nodeName="startpos" /></startpos><exit><collision modelName="exit" /></exit></level>

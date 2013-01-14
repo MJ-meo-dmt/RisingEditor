@@ -36,6 +36,7 @@ sys.path.append(Filename(__file__).getFullpath())
 ### EDITOR IMPORTS ###
 from Gizmo_tools import Gizmo
 from editor_core.fileBrowser import FileBrowser
+from editor_core.fileSaveDialog import FileSaveDialog
 from level.LevelLoader import LevelLoader
 from level.LevelData import LevelData
 from lvlml_writer.lvlmlWriter import LvlmlWriter
@@ -86,6 +87,9 @@ class Editor(ShowBase):
         self.baseDir = currentDir + os.sep + "models"
 
         self.levelData = LevelData(self)
+        
+        ## NEW LEVEL VAR ##
+        newLevelName = "unknownLevel"
 
     #------------------------------------------------------------------#
     #
@@ -108,8 +112,8 @@ class Editor(ShowBase):
         # and the texture folders, so that when clicked they can be added into the editor scene
 
 
-        # Temp gizmo runner
-        self.gizmo = Gizmo(self)
+        # Temp gizmo runner/ state=1
+        self.gizmo = Gizmo(self, 1)
 
 
         ##
@@ -129,9 +133,16 @@ class Editor(ShowBase):
         """
         Handle the clearing for a new fresh scene.
         """
-
+        
+        # Should add a check here to make sure that you dont delete a level
+        # your working on, like one of those are you sure question crap..
+        
         for node in self.gizmo.rootNp.getChildren():
             node.remove_node()
+            
+        
+        # Set new level name
+        newLevelName = newName
 
     def Open(self):
         """
@@ -146,13 +157,16 @@ class Editor(ShowBase):
         Handle the saving of the scene, maybe even write out to file.
         Also handle the lvlml writeout.
         """
-        filename = "testLevel.lvlml"
+        #filename = "testLevel.lvlml"
 
         #TODO: open "file save dialog"
 
-        lvlmlWriter = LvlmlWriter()
+        #lvlmlWriter = LvlmlWriter()
         #LvlmlWriter.levelData = self.levelData
-        lvlmlWriter.write(filename)
+        #lvlmlWriter.write(filename)
+        
+        self.FileSaveDialog = FileSaveDialog(self, self.baseDir)
+        print self.fileSaveDialog.open(self.context)
 
     def Import(self):
         """

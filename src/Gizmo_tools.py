@@ -13,9 +13,11 @@ PICK_TAG = 'pickable'
 
 class Gizmo( DirectObject ):
 
-    def __init__( self, _base ):
+    def __init__( self, _base, state):
 
         self.base = _base
+        
+        self.state = state
 
 
         # Create mouse

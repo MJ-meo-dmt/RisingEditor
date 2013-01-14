@@ -1,9 +1,9 @@
-### EDITOR FILE BROWSER ###
+### EDITOR FILE Save Dialog ###
 import os
 from direct.showbase.DirectObject import DirectObject
 from panda3d.core import Filename
 
-class FileBrowser(DirectObject):
+class FileSaveDialog(DirectObject):
     """
     The file browser can be used to open level, model and other files
     in the editor.
