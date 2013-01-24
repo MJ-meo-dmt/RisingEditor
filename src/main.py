@@ -165,7 +165,7 @@ class Editor(ShowBase):
         #LvlmlWriter.levelData = self.levelData
         #lvlmlWriter.write(filename)
         
-        self.FileSaveDialog = FileSaveDialog(self, self.baseDir)
+        self.fileSaveDialog = FileSaveDialog(self, self.baseDir)
         print self.fileSaveDialog.open(self.context)
 
     def Import(self):

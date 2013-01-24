@@ -11,7 +11,7 @@ body {
 
 .dialog {
     background-decorator: image;
-    background-image: ../../data_src/gui/images/save_dialog/open_dialog.png;
+    background-image: ../../data_src/gui/images/save_dialog/save-file.png;
     width:512px;
     height:256px;
     position:absolute;
@@ -19,7 +19,7 @@ body {
 
 .dirView {
     background-decorator:image;
-    background-image: ../../data_src/gui/images/save_dialog/file_viewer.png;
+    background-image: ../../data_src/gui/images/save_dialog/fileview.png;
     width:495px;
     height:222px;
     display: block;

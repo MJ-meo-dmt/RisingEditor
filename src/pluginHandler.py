@@ -11,25 +11,22 @@ import os
 import sys
 
 
-class PluginHandler:
+class PluginManager:
+    """
+    Plugin Manager
     
-    def __init__(self):
+    Loads the plugins and manages them
+    """
+    
+    plugins = {}
+    
+    def __init__(self, folder):
+        """Load plugins from the folder"""
         
-        print "Plugin Handler"
+        folder = os.path.abspath(folder)
         
+        if not os.path.isdir(folder):
+            print "Error not able to load because '%s' is not a folder" % folder)
+            return 
+            
         
-        
-    def loader(self, plugin):
-        
-        self.plugin = plugin
-        return self.plugin
-        
-    def initPlugin(self, plugin):
-        
-        print "Run plugin"
-
-
-import os
-
-def plugins_list(plugin_Dir):
-    """ List all the plugins in the dir """
