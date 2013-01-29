@@ -23,6 +23,7 @@ class PluginMgr():
 
     def __init__(self):
         
+        # Could be used for "In editor list viewing or something"
         self.activePlugin = {}
         
     # Find all plugins in given Dir.
@@ -42,7 +43,8 @@ class PluginMgr():
             module = __import__(plugin, env)
             env[plugin] = module
             self.activePlugin[plugin] = module
-            #logging.warning('Loaded: %s') % plugin
+            print "Imported: %s" % module
+            
             
             
             
