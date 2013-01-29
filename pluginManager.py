@@ -24,7 +24,7 @@ class PluginMgr():
     def __init__(self):
         
         # Could be used for "In editor list viewing or something"
-        self.activePlugin = {}
+        self.Plugin = {}
         
     # Find all plugins in given Dir.
     def pluginList(self, pluginDir):
