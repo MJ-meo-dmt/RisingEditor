@@ -67,7 +67,7 @@ class Main(ShowBase):
         
         logging.info('Attempting to load plugins')
         self.PluginMgr.importPlugins(PLUGIN_DIR, globals())
-        
+        print self.PluginMgr.activePlugin
         
         
         

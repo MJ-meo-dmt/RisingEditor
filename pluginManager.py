@@ -32,7 +32,7 @@ class PluginMgr():
             for filename in os.listdir(path):
                 name, ext = os.path.splitext(filename)
                 
-                if ext.endswitch(".py"):
+                if ext.endswith(".py"):
                     yield name
                     
     
@@ -42,7 +42,7 @@ class PluginMgr():
             module = __import__(plugin, env)
             env[plugin] = module
             self.activePlugin[plugin] = module
-            logging.warning('Loaded: %s') % plugin
+            #logging.warning('Loaded: %s') % plugin
             
             
             
