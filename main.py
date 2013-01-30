@@ -36,9 +36,10 @@ from panda3d.rocket import *
 from panda3d.bullet import *
 
 # Main imports
+from pluginManager import *
 
 # From Editor core
-from pluginManager import *
+from editorCore import EditorCore
 
 # Configs
 from editorCfg import *
@@ -57,7 +58,9 @@ class Main(ShowBase):
         
         ShowBase.__init__(self)
         
-        ## Start: Editor
+        ## Start: EditorCore
+        self.EditorCore = EditorCore(self)
+        
         
         ## Start: PluginMgr & Plugins ##
         self.PluginMgr = PluginMgr()
@@ -66,8 +69,12 @@ class Main(ShowBase):
         print "Current System Path: %s" % (sys.path)
         
         logging.info('Attempting to load plugins')
+        # Start importing plugins
         self.PluginMgr.importPlugins(PLUGIN_DIR, globals())
         
+    
+        
+    
 
 
 

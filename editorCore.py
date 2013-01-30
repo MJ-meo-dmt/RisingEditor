@@ -15,6 +15,7 @@ import logging
 # Panda Engine imports
 
 # Extra imports
+ 
 
 #----------------------------------------------------------------------#
 
@@ -23,13 +24,19 @@ import logging
 class EditorCore():
     
     
-    def __init__(self):
+    def __init__(self, _base):
         
-        pass 
+        self.base = _base
+        
+        self.guiInterface = None
+        
         
     
     def start(self):
-        pass 
+        
+        pass
+        
         
     def stop(self):
         pass
+

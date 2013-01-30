@@ -42,7 +42,7 @@ class PluginMgr():
         for plugin in self.pluginList(pluginDir):
             module = __import__(plugin, env)
             env[plugin] = module
-            self.activePlugin[plugin] = module
+            self.Plugin[plugin] = module.Plugin()
             print "Imported: %s" % module
             
             

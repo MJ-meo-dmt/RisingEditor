@@ -4,21 +4,17 @@
 This is an Example Plugin module/class setup.
 """
 
-class Plugin1:
+class Plugin():
     
     def __init__(self):
-        
-        self.name = "Plugin1 This is the plugin"
-        
+        pass
 
     
     def start(self):
         
-        print self.name
+        pass
         
     def stop(self):
         
         pass
 
-
-PLUGIN1 = Plugin1()
