@@ -32,8 +32,6 @@ from panda3d.core import *
 from direct.showbase.DirectObject import DirectObject
 from direct.gui.OnscreenText import OnscreenText 
 
-from panda3d.rocket import *
-from panda3d.bullet import *
 
 # Main imports
 from pluginManager import *

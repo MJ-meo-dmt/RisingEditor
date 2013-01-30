@@ -1,0 +1,90 @@
+/* Basics */
+body {
+    z-index: -1;
+    width: 256px; 
+    height: 310px;
+    margin: auto;
+    font-family:verdana;
+}
+
+/* FILE OPEN DIALOG */
+
+.dialog {
+    background-decorator: image;
+    background-image: ../../data_src/gui/images/open_dialog/open_dialog.png;
+    width:512px;
+    height:256px;
+    position:absolute;
+}
+
+.dirView {
+    background-decorator:image;
+    background-image: ../../data_src/gui/images/open_dialog/file_viewer.png;
+    width:495px;
+    height:222px;
+    display: block;
+    margin-top:25px;
+    margin-left:8px;
+    overflow-y:auto;
+}
+
+.file_egg {
+    display:block;
+    background-color:green;
+    width:100%;
+}
+
+.file_lvlml {
+    display:block;
+    background-color:blue;
+    width:100%;
+}
+
+.directory {
+    display:block;
+    background-color:red;
+    width:100%;
+}
+
+scrollbarvertical
+{
+	width: 27px;
+}
+
+.cancel_btn {
+    background-decorator:image;
+    background-image: ../../data_src/gui/images/open_dialog/cancel_btn.png;
+    width:64px;
+    height:32px;
+    float:left;
+    margin-top:18px;
+    margin-left:112px;
+}
+
+.cancel_btn:hover {
+    background-decorator: image;
+    background-image: ../../data_src/gui/images/open_dialog/cancel_btn_hover.png;
+}
+
+.open_btn {
+    background-decorator:image;
+    background-image: ../../data_src/gui/images/open_dialog/open_btn.png;
+    width:64px;
+    height:32px;
+    float:left;
+    margin-top:19px;
+    margin-left:5px;
+}
+
+.open_btn:hover {
+    background-decorator: image;
+    background-image: ../../data_src/gui/images/open_dialog/open_btn_hover.png;
+}
+
+
+
+
+
+
+
+
