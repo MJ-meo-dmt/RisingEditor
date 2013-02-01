@@ -7,12 +7,7 @@
 
 <!-- // Scripts -->
 <script>
-
-def printo():
-    print "Hello option two!!!"
     
-
-
 </script>
 
 <!-- Scripts // -->
@@ -24,17 +19,14 @@ def printo():
     <!-- editorToolBar -->
 	<div class="editorToolBar">
 	    
-	    
 	<!-- FILE BTN - Menu -->
 	    <div class="editorFileBtn">
 		    
 		<select>
-		    <option><div onclick="messenger.send('new')">New</div></option>
-		    <option><div onclick="messenger.send('open')">Open</div></option>
-		    <option><div onclick="messenger.send('save')">Save</div></option>
-		    <option><div onclick="messenger.send('import')">Import</div></option>
-		    <option><div onclick="messenger.send('export')">Export</div></option>
-		    <option><div onclick="exit()">Exit</div></option>
+		    <option><div onclick="messenger.send('new-level')">New</div></option>
+		    <option><div onclick="messenger.send('open-level')">Open</div></option>
+		    <option><div onclick="messenger.send('save-level')">Save</div></option>
+		    <option><div onclick="messenger.send('exit-event')">Exit</div></option>
 		</select>
 	
 	    </div>
@@ -82,13 +74,13 @@ def printo():
 	<div class="sidebar">
 	    
 	    <!-- Move Tool -->
-		<div class="moveTool" onclick="messenger.send('w')"><span>Move Tool 'W'</span></div>
+		<div class="moveTool" onclick="messenger.send('move-gizmo')"><span>Move Tool 'W'</span></div>
 	    
 	    <!-- Rotate Tool -->
-		<div class="rotateTool" onclick="messenger.send('e')"><span>Rotate Tool 'E'</span></div>
+		<div class="rotateTool" onclick="messenger.send('rotate-gizmo')"><span>Rotate Tool 'E'</span></div>
 		
 	    <!-- Scale Tool -->
-		<div class="scaleTool" onclick="messenger.send('r')"><span>Scale Tool 'R'</span></div>
+		<div class="scaleTool" onclick="messenger.send('scale-gizmo')"><span>Scale Tool 'R'</span></div>
 	
 	
 	</div>

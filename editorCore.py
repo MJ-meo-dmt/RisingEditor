@@ -13,15 +13,16 @@ import os
 import logging
 
 # Panda Engine imports
+from direct.showbase.DirectObject import DirectObject
 
 # Extra imports
- 
+from events import Events
 
 #----------------------------------------------------------------------#
 
 ### EDITOR CORE ###
 
-class EditorCore():
+class EditorCore(DirectObject):
     
     
     def __init__(self, _base):
@@ -30,7 +31,24 @@ class EditorCore():
         
         self.guiInterface = None
         
+        # 
+        self.Events = Events(self)
         
+        self.eventHandler = {
+            "new-level"         : self.Events.newLevel,
+            "open-level"        : self.Events.openLevel,
+            "save-level"        : self.Events.saveLevel,
+            "exit-event"        : self.Events.exitEvent,
+            "move-gizmo"        : self.Events.moveGizmo,
+            "rotate-gizmo"      : self.Events.rotateGizmo,
+            "scale-gizmo"       : self.Events.scaleGizmo
+        
+        }
+        
+        # Accept events
+        for eventname in self.eventHandler.keys():
+            
+            self.accept(eventname, self.eventHandler[eventname])
     
     def start(self):
         
@@ -39,4 +57,4 @@ class EditorCore():
         
     def stop(self):
         pass
-
+      
