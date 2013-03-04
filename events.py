@@ -14,6 +14,7 @@ import logging
 # Panda Engine imports
 
 # Extra imports
+from editorCfg import *
  
 
 #----------------------------------------------------------------------#
@@ -25,10 +26,11 @@ class Events():
     
     def __init__(self, _base):
         
-        self.base = _base 
+        self.EditorCore = _base 
         
     def newLevel(self):
         print "new-level"
+        print self.EditorCore.base.PluginMgr.Plugin[GUI_PLUGIN_NAME].temp
         
     def openLevel(self):
         print "open-level"

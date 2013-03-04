@@ -15,6 +15,8 @@ class Plugin():
     
     def __init__(self):
         
+        self.temp = "Helloooo From GuiCore"
+        
         ## LOAD: Font
         LoadFontFace("plugins/pluginData/gui/fonts/verdana.ttf")
 

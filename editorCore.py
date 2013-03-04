@@ -29,6 +29,16 @@ class EditorCore(DirectObject):
         
         self.base = _base
         
+        # Node holder
+        self.RenderNodes = {}
+        self.RenderNodes['master'] = render.attachNewNode('master_renderNodes')
+        
+        # Visible Node holder
+        self.RenderNodes['visible'] = self.RenderNodes['master'].attachNewNode('visible_renderNodes')
+        
+        # Hidden Node holder
+        self.RenderNodes['hidden'] = self.RenderNodes['master'].attachNewNode('hidden_renderNodes')
+        
         self.guiInterface = None
         
         # 
