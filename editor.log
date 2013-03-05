@@ -110,3 +110,9 @@ INFO:root:Attempting to load plugins
 INFO:root:Attempting to load plugins
 INFO:root:Attempting to load plugins
 INFO:root:Attempting to load plugins
+ERROR:root:Could not load model file(s): ['models/jump.egg']
+ERROR:root:Could not load model file(s): ['models/jump.egg']
+ERROR:root:Could not load model file(s): ['models/jump.egg']
+ERROR:root:Could not load model file(s): ['jump.egg']
+INFO:root:Attempting to load plugins
+INFO:root:Attempting to load plugins

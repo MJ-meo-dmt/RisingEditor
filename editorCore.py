@@ -20,7 +20,7 @@ from panda3d.bullet import *
 
 # Extra imports
 from events import Events
-from levelLoader import LevelLoader
+from levelLoader.LevelLoader import LevelLoader
 #----------------------------------------------------------------------#
 
 ### EDITOR CORE ###
@@ -54,6 +54,12 @@ class EditorCore(DirectObject):
         # Picker settings
         self.selected_object = None
         
+        # Load temp model file
+        self.levelload = LevelLoader(self)
+        self.levelload.read("tempModels/jump.lvlml", False)
+        self.levelload.run()
+        
+        
         
         self.guiInterface = None
         
@@ -82,13 +88,6 @@ class EditorCore(DirectObject):
         
     def stop(self):
         pass
-        
-    
-    
-    def tempLevelLoader(self, lvlml):
-        self.levelload = LevelLoader(self)
-        self.levelload.read(lvlml, False)
-        self.levelload.run()
         
         
     
@@ -120,6 +119,7 @@ class EditorCore(DirectObject):
             result = self.bulletWorld.rayTestClosest(pFrom, pTo)
             
             objNode = result.getNode()
+            print objNode
 
             selected_object = objNode
             

@@ -83,6 +83,7 @@ class LevelLoader:
                 self.leveldata.model = model
             else:
                 # We have a problem with loading the base model
+                print model
                 return False
 
             collision = levelTree.find("collisionModel")

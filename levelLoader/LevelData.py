@@ -22,7 +22,8 @@ class LevelData:
     def __init__(self, _base):
         """initialise the base variables"""
         
-        self.LeverLoader = _base
+        self.baseLevelLoader = _base
+        
         
         # General informations
         self.author = ""
@@ -75,11 +76,11 @@ class LevelData:
                 lmodel.setPos(light.getPos())
                 lmodel.reparentTo(self.model)
 
-        if __debug__ :
-            startposmodel = loader.loadModel("models/zup-axis")
-            startposmodel.setPos(self.playerStartPos)
-            startposmodel.reparentTo(self.model)
-            startposmodel.setScale(0.2)
+        #if __debug__ :
+        #    startposmodel = loader.loadModel("models/zup-axis")
+        #    startposmodel.setPos(self.playerStartPos)
+        #    startposmodel.reparentTo(self.model)
+        #    startposmodel.setScale(0.2)
         # reparent the level model to the base renderer,
         # so it will be displayed
         
@@ -88,7 +89,7 @@ class LevelData:
             print obj
             obj.setTag( PICK_TAG, '1' )
         print self.model
-        self.model.reparentTo(self.LevelLoader.EditorCore.RenderNodes['visible'])
+        self.model.reparentTo(self.baseLevelLoader.EditorCore.RenderNodes['visible'])
 
     def cleanup(self):
         """Remove all models and other level data entirely"""
