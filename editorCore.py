@@ -32,10 +32,28 @@ class EditorCore(DirectObject):
         
         self.base = _base
         
+        
+        
         # Setup Physics World for editor
         # World
         self.bulletWorld = BulletWorld()
         self.bulletWorld.setGravity(Vec3(0, 0, -8.9))
+        
+        
+        taskMgr.add(self.update, 'update')
+        
+        #### DEBUG BULLET ####
+        debugNode = BulletDebugNode('Debug')
+        debugNode.showWireframe(True)
+        debugNode.showConstraints(True)
+        debugNode.showBoundingBoxes(False)
+        debugNode.showNormals(False)
+        debugNP = render.attachNewNode(debugNode)
+        debugNP.show()
+        
+        self.bulletWorld.setDebugNode(debugNP.node())
+        
+        ######################
     
         # Node holder
         self.RenderNodes = {}
@@ -140,5 +158,12 @@ class EditorCore(DirectObject):
         ghost = BulletGhostNode(str(obj))
         ghost.addShape(BulletTriangleMeshShape(tmpMesh, dynamic=False))
         #self.RenderNodes['visible'][i].modelGeom = render.attachNewNode(ghost)
-        #self.level.sensors[i].modelGeom.setCollideMask(BitMask32(0x0f))
+        obj.setCollideMask(BitMask32(0x0f))
         self.bulletWorld.attachGhost(ghost)
+        
+    
+    def update(self, task):
+        dt = globalClock.getDt()
+        self.bulletWorld.doPhysics(dt, 10, 1.0/180.0)
+
+        return task.cont
