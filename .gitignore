@@ -151,7 +151,7 @@ develop-eggs
 pip-log.txt
 *.log
 .log
-
+logs/
 # Unit test / coverage reports
 .coverage
 .tox

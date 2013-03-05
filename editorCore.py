@@ -137,7 +137,7 @@ class EditorCore(DirectObject):
         else:
             print "Not geom node"#tmpMesh.addGeom(self.__getGeomFromCollision(node))
         #sensorMeshes.append(tmpMesh)
-        ghost = BulletGhostNode("test")
+        ghost = BulletGhostNode(str(obj))
         ghost.addShape(BulletTriangleMeshShape(tmpMesh, dynamic=False))
         #self.RenderNodes['visible'][i].modelGeom = render.attachNewNode(ghost)
         #self.level.sensors[i].modelGeom.setCollideMask(BitMask32(0x0f))
