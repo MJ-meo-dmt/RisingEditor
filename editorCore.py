@@ -60,10 +60,7 @@ class EditorCore(DirectObject):
         self.levelload = LevelLoader(self)
         self.levelload.read("tempModels/jump.lvlml", False)
         self.levelload.run()
-        
-        self.buildCollisionNodes()
-        
-        
+                
         
         self.guiInterface = None
         
@@ -130,20 +127,18 @@ class EditorCore(DirectObject):
         return selected_object 
         
         
-    def buildCollisionNodes(self):
+    def buildCollisionNodes(self, obj):
         
-        for i in self.ObjectNodes:
-            self.objects = self.ObjectNodes[i].findAllMatches('**')
-            tmpMesh = BulletTriangleMesh()
-            node = self.objects.node()
-            if node.isGeomNode():
-                #TODO: Check is collision with node????
-                tmpMesh.addGeom(node.getGeom(0))
-            else:
-                print "Not geom node"#tmpMesh.addGeom(self.__getGeomFromCollision(node))
-            #sensorMeshes.append(tmpMesh)
-            ghost = BulletGhostNode(self.objects)
-            ghost.addShape(BulletTriangleMeshShape(tmpMesh, dynamic=False))
-            #self.RenderNodes['visible'][i].modelGeom = render.attachNewNode(ghost)
-            #self.level.sensors[i].modelGeom.setCollideMask(BitMask32(0x0f))
-            self.bulletWorld.attachGhost(ghost)
+        tmpMesh = BulletTriangleMesh()
+        node = obj.node()
+        if node.isGeomNode():
+            #TODO: Check is collision with node????
+            tmpMesh.addGeom(node.getGeom(0))
+        else:
+            print "Not geom node"#tmpMesh.addGeom(self.__getGeomFromCollision(node))
+        #sensorMeshes.append(tmpMesh)
+        ghost = BulletGhostNode("test")
+        ghost.addShape(BulletTriangleMeshShape(tmpMesh, dynamic=False))
+        #self.RenderNodes['visible'][i].modelGeom = render.attachNewNode(ghost)
+        #self.level.sensors[i].modelGeom.setCollideMask(BitMask32(0x0f))
+        self.bulletWorld.attachGhost(ghost)
