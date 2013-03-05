@@ -90,6 +90,7 @@ class LevelData:
             obj.setTag( PICK_TAG, '1' )
         print self.model
         self.model.reparentTo(self.baseLevelLoader.EditorCore.RenderNodes['visible'])
+        self.baseLevelLoader.EditorCore.ObjectNodes[self.model] = self.model
 
     def cleanup(self):
         """Remove all models and other level data entirely"""
