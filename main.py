@@ -4,8 +4,8 @@
 """
 Main Program class
 
-This runs everything, this Main class could be replaced by any other 
-main program class so that the editor could be integrated. 
+This runs everything, this Main class could be replaced by any other
+main program class so that the editor could be integrated.
 """
 
 # System imports
@@ -30,7 +30,7 @@ from direct.showbase.ShowBase import ShowBase
 from pandac.PandaModules import *
 from panda3d.core import *
 from direct.showbase.DirectObject import DirectObject
-from direct.gui.OnscreenText import OnscreenText 
+from direct.gui.OnscreenText import OnscreenText
 
 
 # Main imports
@@ -50,29 +50,29 @@ class Main(ShowBase):
 
 
     def __init__(self):
-        
+
         # Create Log file
         logging.basicConfig(filename='editor.log', level=logging.DEBUG)
-        
+
         ShowBase.__init__(self)
-        
+
         ## Start: EditorCore
         self.EditorCore = EditorCore(self)
-        
-        
+
+
         ## Start: PluginMgr & Plugins ##
         self.PluginMgr = PluginMgr()
-        
+
         sys.path.extend(PLUGIN_DIR.split(os.pathsep))
-        print "Current System Path: %s" % (sys.path)
-        
+        #print "Current System Path: %s" % (sys.path)
+
         logging.info('Attempting to load plugins')
         # Start importing plugins
         self.PluginMgr.importPlugins(PLUGIN_DIR, globals())
-        
-    
-        
-    
+
+
+
+
 
 
 

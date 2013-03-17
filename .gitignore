@@ -166,4 +166,4 @@ logs/
 .DS_Store
 
 # Emacs rope project
-/src/.ropeproject/
+.ropeproject/

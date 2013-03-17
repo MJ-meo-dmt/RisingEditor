@@ -21,10 +21,10 @@ class LevelData:
 
     def __init__(self, _base):
         """initialise the base variables"""
-        
+
         self.baseLevelLoader = _base
-        
-        
+
+
         # General informations
         self.author = ""
         self.date = ""
@@ -83,16 +83,16 @@ class LevelData:
         #    startposmodel.setScale(0.2)
         # reparent the level model to the base renderer,
         # so it will be displayed
-        
+
         objects = self.model.findAllMatches('**')
         for obj in objects:
-            print obj
-            obj.setTag( PICK_TAG, '1' )
+            #print obj
+            obj.setTag( PICK_TAG, "True" )
             self.baseLevelLoader.EditorCore.ObjectNodes[obj] = obj
             self.baseLevelLoader.EditorCore.buildCollisionNodes(obj)
-            
+
         self.model.reparentTo(self.baseLevelLoader.EditorCore.RenderNodes['visible'])
-        
+
 
     def cleanup(self):
         """Remove all models and other level data entirely"""

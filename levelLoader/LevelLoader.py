@@ -34,15 +34,15 @@ from panda3d.core import VBase4
 
 class LevelLoader:
     def __init__(self, _base):
-        
+
         self.EditorCore = _base
-        
+
         self.leveldata = LevelData(self)
         self.levelPhysics = None
 
     def run(self):
         self.leveldata.generate()
-        
+
 
     def read(self, levelFilename, isInsideMF=True):
         """This function reads the given level file and store the data for
@@ -83,7 +83,7 @@ class LevelLoader:
                 self.leveldata.model = model
             else:
                 # We have a problem with loading the base model
-                print model
+                #print model
                 return False
 
             collision = levelTree.find("collisionModel")
