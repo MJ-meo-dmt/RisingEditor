@@ -27,38 +27,33 @@ loadPrcFileData("",
 )
 
 from direct.showbase.ShowBase import ShowBase
-from pandac.PandaModules import *
-from panda3d.core import *
-from direct.showbase.DirectObject import DirectObject
-from direct.gui.OnscreenText import OnscreenText
-
 
 # Main imports
-from pluginManager import *
+from pluginManager import PluginMgr
 
 # From Editor core
-from editorCore import EditorCore
+from base.editorCore import EditorCore
 
 # Configs
-from editorCfg import *
+from editorCfg import PLUGIN_DIR
 
 #----------------------------------------------------------------------#
 
 ### MAIN CLASS ###
-
 class Main(ShowBase):
-
-
     def __init__(self):
 
         # Create Log file
-        logging.basicConfig(filename='editor.log', level=logging.DEBUG)
+        logging.basicConfig(
+            filename="editor.log",
+            level=logging.DEBUG,
+            format="%(asctime)s %(levelname)s: %(message)s",
+            datefmt="%d-%m-%Y %H:%M:%S")
 
         ShowBase.__init__(self)
 
-        ## Start: EditorCore
+        ## Load: EditorCore
         self.EditorCore = EditorCore(self)
-
 
         ## Start: PluginMgr & Plugins ##
         self.PluginMgr = PluginMgr()
@@ -70,10 +65,8 @@ class Main(ShowBase):
         # Start importing plugins
         self.PluginMgr.importPlugins(PLUGIN_DIR, globals())
 
-
-
-
-
+        ## Start: EditorCore
+        self.EditorCore.start()
 
 
 # Goooo Panda...

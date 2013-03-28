@@ -8,19 +8,20 @@ Mainly routing and forwarding functions, like the main control centre.
 """
 
 # System imports
-import sys
-import os
 import logging
 
 # Panda Engine imports
 from direct.showbase.DirectObject import DirectObject
-from pandac.PandaModules import *
-from panda3d.core import *
-from panda3d.bullet import *
+from panda3d.core import Vec3, Vec4, BitMask32
+from panda3d.core import Geom, GeomTriangles
+from panda3d.core import GeomVertexData, GeomVertexWriter, GeomVertexFormat
+from panda3d.bullet import BulletWorld, BulletDebugNode, BulletGhostNode
+from panda3d.bullet import BulletTriangleMesh, BulletTriangleMeshShape
 
 # Extra imports
 from events import Events
 from levelLoader.LevelLoader import LevelLoader
+from base.mouseHandler import MouseHandler
 #----------------------------------------------------------------------#
 
 ### EDITOR CORE ###
@@ -35,8 +36,7 @@ class EditorCore(DirectObject):
         self.bulletWorld = BulletWorld()
         self.bulletWorld.setGravity(Vec3(0, 0, -8.9))
 
-
-        taskMgr.add(self.update, 'update')
+        self.base.taskMgr.add(self.update, 'update')
 
         #### DEBUG BULLET ####
         debugNode = BulletDebugNode('Debug')
@@ -44,7 +44,7 @@ class EditorCore(DirectObject):
         debugNode.showConstraints(True)
         debugNode.showBoundingBoxes(False)
         debugNode.showNormals(False)
-        debugNP = render.attachNewNode(debugNode)
+        debugNP = self.base.render.attachNewNode(debugNode)
         #debugNP.show()
 
         self.bulletWorld.setDebugNode(debugNP.node())
@@ -53,25 +53,26 @@ class EditorCore(DirectObject):
 
         # Node holder
         self.RenderNodes = {}
-        self.RenderNodes['master'] = render.attachNewNode('master_renderNodes')
+        self.RenderNodes['master'] = self.base.render. \
+                                     attachNewNode('master_renderNodes')
 
         self.ObjectNodes = {}
         # Bullet Ghost Nodes
         self.ghostNodes = {}
 
         # Visible Node holder
-        self.RenderNodes['visible'] = self.RenderNodes['master'].attachNewNode('visible_renderNodes')
+        self.RenderNodes['visible'] = self.RenderNodes['master']. \
+                                      attachNewNode('visible_renderNodes')
 
         # Hidden Node holder
-        self.RenderNodes['hidden'] = self.RenderNodes['master'].attachNewNode('hidden_renderNodes')
+        self.RenderNodes['hidden'] = self.RenderNodes['master']. \
+                                     attachNewNode('hidden_renderNodes')
 
-
-
-        # Mouse click
-        self.accept('mouse1', self.doSelect)
+        # Mouse handling
+        self.mouseHandler = MouseHandler(self.bulletWorld)
 
         # Picker settings
-        self.selected_object = None
+        self.selectedObjects = []
 
         # Load temp model file
         self.levelload = LevelLoader(self)
@@ -96,58 +97,50 @@ class EditorCore(DirectObject):
 
         # Accept events
         for eventname in self.eventHandler.keys():
-
             self.accept(eventname, self.eventHandler[eventname])
 
     def start(self):
-        pass
-
+        logging.debug("start editor core")
+        self.base.PluginMgr.start()
+        self.mouseHandler.start(self.doSelect)
 
     def stop(self):
-        pass
+        logging.debug("stop editor core")
+        self.base.PluginMgr.stop()
+        self.mouseHandler.stop()
 
+    def doSelect(self, multiSelect):
+        selected = self.mouseHandler.rayCheck()
+        lastSelections = []
+        # clear previous selection
+        if len(self.selectedObjects) > 0:
+            lastSelections = self.selectedObjects
+            if not multiSelect:
+                # deselect all objects, so at the end only the
+                # current selected object will be marked
+                for i in range(len(self.selectedObjects)):
+                    self.selectedObjects[i].clearColorScale()
+                self.selectedObjects = []
 
-    def doSelect(self):
-        selected = self.ray()
         if selected != None:
+            # check which object is selected
             for ghost, obj in self.ghostNodes.items():
                 if ghost == selected:
-                    self.selected_object = obj
-
-            if self.selected_object.getTag('pickable') == "True":
-
-                #TODO: check if other objects need to be unselected
-
-                self.selected_object.setColorScale(Vec4(0, 0.3, 1, 1))
-                # now add it to a selection node or something i guess
-        else:
-            #TODO: unselect anything
-            print "Nothing"
-            pass
-
-
-    def ray(self):
-        selected_object = None
-
-        if base.mouseWatcherNode.hasMouse():
-
-            posMouse = base.mouseWatcherNode.getMouse()
-            pFrom = Point3()
-            pTo = Point3()
-            base.camLens.extrude(posMouse, pFrom, pTo)
-
-            pFrom = render.getRelativePoint(base.cam, pFrom)
-            pTo = render.getRelativePoint(base.cam, pTo)
-
-            result = self.bulletWorld.rayTestClosest(pFrom, pTo)
-
-            objNode = result.getNode()
-            #print objNode
-
-            selected_object = objNode
-
-        return selected_object
-
+                    # check if the object is or is not in the selection list
+                    if not obj in lastSelections:
+                        # object is not in the list, select the object
+                        if obj.getTag('pickable') == "True":
+                            obj.setColorScale(Vec4(0.3, 0.7, 1, 1))
+                        self.selectedObjects.append(obj)
+                    # as all objects get deselected in singleSelect mode,
+                    # just deselect here in multiSelect mode
+                    elif multiSelect:
+                        # object is in already in the list, deselect the object
+                        obj.clearColorScale()
+                        self.selectedObjects.remove(obj)
+                    # We can only de-/select one object at a time at the
+                    # moment, so leave the loop here
+                    break
 
     def buildCollisionNodes(self, obj):
         tmpMesh = BulletTriangleMesh()
@@ -155,15 +148,14 @@ class EditorCore(DirectObject):
         if node.isGeomNode():
             tmpMesh.addGeom(node.getGeom(0))
         elif node.isCollisionNode():
-            return
             #tmpMesh.addGeom(self.__getGeomFromCollision(node))
+            return
         else:
             return
 
         ghost = BulletGhostNode(str(obj))
         ghost.addShape(BulletTriangleMeshShape(tmpMesh, dynamic=False))
-        #self.RenderNodes['visible'][i].modelGeom = render.attachNewNode(ghost)
-        ghostNP = render.attachNewNode(ghost)
+        ghostNP = self.base.render.attachNewNode(ghost)
         ghostNP.reparentTo(obj)
         self.ghostNodes[ghost] = obj
         obj.setCollideMask(BitMask32(0x0f))
@@ -171,6 +163,7 @@ class EditorCore(DirectObject):
 
 
     def update(self, task):
+        """Bullet Physic update task"""
         dt = globalClock.getDt()
         self.bulletWorld.doPhysics(dt, 10, 1.0/180.0)
 

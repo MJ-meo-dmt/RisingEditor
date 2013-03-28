@@ -4,7 +4,7 @@
 Gui plugin
 """
 # System imports
-import os
+import logging
 # Panda imports
 from panda3d.rocket import RocketRegion, RocketInputHandler, LoadFontFace
 
@@ -12,11 +12,11 @@ from panda3d.rocket import RocketRegion, RocketInputHandler, LoadFontFace
 ########################################################################
 
 class Plugin():
-    
+
     def __init__(self):
-        
+
         self.temp = "Helloooo From GuiCore"
-        
+
         ## LOAD: Font
         LoadFontFace("plugins/pluginData/gui/fonts/verdana.ttf")
 
@@ -32,18 +32,15 @@ class Plugin():
 
         ## SETUP MAIN EDITOR WINDOW & GUI ##
         self.editorGui = self.context.LoadDocument('plugins/pluginData/gui/editor_main.rml')
-        self.editorGui.Show()
-        
-        ## EVENTS ##
-        
-        
 
-    
+        ## EVENTS ##
+
+
     def start(self):
-        
-        pass
-        
+        logging.info("Start GUI core Plugin")
+        self.editorGui.Show()
+
     def stop(self):
-        
-        pass
+        logging.info("Stop GUI core Plugin")
+        self.editorGui.Hide()
 
