@@ -86,13 +86,15 @@ class EditorCore(DirectObject):
         self.Events = Events(self)
 
         self.eventHandler = {
-            "new-level"         : self.Events.newLevel,
-            "open-level"        : self.Events.openLevel,
-            "save-level"        : self.Events.saveLevel,
-            "exit-event"        : self.Events.exitEvent,
-            "move-gizmo"        : self.Events.moveGizmo,
-            "rotate-gizmo"      : self.Events.rotateGizmo,
-            "scale-gizmo"       : self.Events.scaleGizmo
+            "new-level": self.Events.newLevel,
+            "open-level": self.Events.openLevel,
+            "save-level": self.Events.saveLevel,
+            "exit-event": self.Events.exitEvent,
+            "move-gizmo": self.Events.moveGizmo,
+            "rotate-gizmo": self.Events.rotateGizmo,
+            "scale-gizmo": self.Events.scaleGizmo,
+            "mouse-in-rocket-region": self.Events.mouseInRocketRegion,
+            "mouse-out-rocket-region": self.Events.mouseOutRocketRegion
         }
 
         # Accept events
@@ -102,11 +104,17 @@ class EditorCore(DirectObject):
     def start(self):
         logging.debug("start editor core")
         self.base.PluginMgr.start()
-        self.mouseHandler.start(self.doSelect)
+        self.editorMouseStart()
 
     def stop(self):
         logging.debug("stop editor core")
         self.base.PluginMgr.stop()
+        self.editorMouseStop()
+
+    def editorMouseStart(self):
+        self.mouseHandler.start(self.doSelect)
+
+    def editorMouseStop(self):
         self.mouseHandler.stop()
 
     def doSelect(self, multiSelect):

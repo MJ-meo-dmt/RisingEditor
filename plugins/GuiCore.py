@@ -27,6 +27,9 @@ class Plugin():
         base.mouseWatcher.attachNewNode(ih)
         rw.setInputHandler(ih)
 
+        rw.initDebugger()
+        rw.setDebuggerVisible(False)
+
         ## CONTEXT ##
         self.context = rw.getContext()
 

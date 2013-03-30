@@ -17,7 +17,9 @@
 <body>
 	
     <!-- editorToolBar -->
-	<div class="editorToolBar">
+	<div class="editorToolBar"
+	     onmouseover="messenger.send('mouse-in-rocket-region')"
+	     onmouseout="messenger.send('mouse-out-rocket-region')">
 	    
 	<!-- FILE BTN - Menu -->
 	    <div class="editorFileBtn">
@@ -71,7 +73,9 @@
     
     <!-- SideBar -->
 	
-	<div class="sidebar">
+	<div class="sidebar"
+	     onmouseover="messenger.send('mouse-in-rocket-region')"
+	     onmouseout="messenger.send('mouse-out-rocket-region')">
 	    
 	    <!-- Move Tool -->
 		<div class="moveTool" onclick="messenger.send('move-gizmo')"><span>Move Tool 'W'</span></div>
@@ -89,7 +93,9 @@
     
     <!-- Object Viewer -->
     
-	<div class="objectViewer">
+	<div class="objectViewer"
+	     onmouseover="messenger.send('mouse-in-rocket-region')"
+	     onmouseout="messenger.send('mouse-out-rocket-region')">
 	    
 	    <div class="fileview" id="filepathlist">
 		

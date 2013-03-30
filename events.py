@@ -54,4 +54,8 @@ class Events():
     def scaleGizmo(self):
         print "scale-gizmo"
 
+    def mouseInRocketRegion(self):
+        self.EditorCore.editorMouseStop()
 
+    def mouseOutRocketRegion(self):
+        self.EditorCore.editorMouseStart()
