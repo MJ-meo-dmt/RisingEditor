@@ -45,14 +45,29 @@ class Events():
         self.EditorCore.base.shutdown()
         sys.exit(0)
 
-    def moveGizmo(self):
-        print "move-gizmo"
+    def moveObject(self):
+        print "move-object"
+        if len(self.EditorCore.selectedObjects) > 0:
+            base.messenger.send(
+                "startTransformObject",
+                [self.EditorCore.selectedObjects[0],
+                "move"])
 
-    def rotateGizmo(self):
-        print "rotate-gizmo"
+    def rotateObject(self):
+        print "rotate-object"
+        if len(self.EditorCore.selectedObjects) > 0:
+            base.messenger.send(
+                "startTransformObject",
+                [self.EditorCore.selectedObjects[0],
+                "rotate"])
 
-    def scaleGizmo(self):
-        print "scale-gizmo"
+    def scaleObject(self):
+        print "scale-object"
+        if len(self.EditorCore.selectedObjects) > 0:
+            base.messenger.send(
+                "startTransformObject",
+                [self.EditorCore.selectedObjects[0],
+                "scale"])
 
     def mouseInRocketRegion(self):
         self.EditorCore.editorMouseStop()

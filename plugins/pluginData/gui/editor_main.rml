@@ -78,13 +78,13 @@
 	     onmouseout="messenger.send('mouse-out-rocket-region')">
 	    
 	    <!-- Move Tool -->
-		<div class="moveTool" onclick="messenger.send('move-gizmo')"><span>Move Tool 'W'</span></div>
+		<div class="moveTool" onclick="messenger.send('move-object')"><span>Move Tool 'W'</span></div>
 	    
 	    <!-- Rotate Tool -->
-		<div class="rotateTool" onclick="messenger.send('rotate-gizmo')"><span>Rotate Tool 'E'</span></div>
+		<div class="rotateTool" onclick="messenger.send('rotate-object')"><span>Rotate Tool 'E'</span></div>
 		
 	    <!-- Scale Tool -->
-		<div class="scaleTool" onclick="messenger.send('scale-gizmo')"><span>Scale Tool 'R'</span></div>
+		<div class="scaleTool" onclick="messenger.send('scale-object')"><span>Scale Tool 'R'</span></div>
 	
 	
 	</div>

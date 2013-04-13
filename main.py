@@ -19,7 +19,7 @@ loadPrcFileData("",
 """
     window-title Editor
     fullscreen 0
-    win-size 1024 768
+    win-size 800 480
     cursor-hidden 0
     sync-video 0
     show-frame-rate-meter 1

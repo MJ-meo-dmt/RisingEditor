@@ -90,9 +90,9 @@ class EditorCore(DirectObject):
             "open-level": self.Events.openLevel,
             "save-level": self.Events.saveLevel,
             "exit-event": self.Events.exitEvent,
-            "move-gizmo": self.Events.moveGizmo,
-            "rotate-gizmo": self.Events.rotateGizmo,
-            "scale-gizmo": self.Events.scaleGizmo,
+            "move-object": self.Events.moveObject,
+            "rotate-object": self.Events.rotateObject,
+            "scale-object": self.Events.scaleObject,
             "mouse-in-rocket-region": self.Events.mouseInRocketRegion,
             "mouse-out-rocket-region": self.Events.mouseOutRocketRegion
         }

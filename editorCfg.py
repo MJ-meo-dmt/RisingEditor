@@ -20,4 +20,5 @@ PLUGIN_DIR = "plugins/"
 #----------------#
 # This should be the name of the main gui plugin file/.py
 GUI_PLUGIN_NAME = "GuiCore"
-
+# This should be the name of the main object transformation plugin file/.py
+TRANSFORM_PLUGIN_NAME = "TransformCore"
